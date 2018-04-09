@@ -1,0 +1,48 @@
+<plugin
+		id="it.unibz.inf.ontouml.vp"
+		name="OntoUML 2.0 Plugin for Visual Paradigm"
+		description="This plugin adds OntoUML 2.0 support in Visual Paradigm"
+		provider="Claudenir Fonseca"
+		class="it.unibz.inf.ontouml.vp.OntoUMLPluginForVP">
+	<actionSets>
+		<actionSet id="it.unibz.inf.ontouml.vp.actionset1">
+			<toolbar
+					id="it.unibz.inf.ontouml.vp.actionset1.toolbar1"
+					orientation="north"
+					index="last"/>
+			<action 
+					id="it.unibz.inf.ontouml.vp.actions.ModelVerificationAction"
+					actionType="generalAction"
+					description="Executes the verification of OntoUML entities in the model in order to verify conformance to OntoUML 2.0 constraints."
+					style="normal"
+					tooltip="Executes verification of OntoUML constraints over the model." 
+					icon="icons/play-triangle.png"
+					label="Execute Model Verification"
+					toolbarPath="it.unibz.inf.ontouml.vp.actionset1.toolbar1/#">
+				<actionController class="it.unibz.inf.ontouml.vp.actions.ModelVerificationAction" />
+			</action>
+			<action 
+					id="it.unibz.inf.ontouml.vp.actions.ReloadPluginAction"
+					actionType="generalAction"
+					description="Reloads OntoUML Plugin for Visual Paradigm and enables the update of compiled files without requiring restart of the tool."
+					style="normal"
+					tooltip="Reload plugin facilitating debug." 
+					icon="icons/refresh4.png"
+					label="Reload Plugin (DEBUG ONLY)" 
+					toolbarPath="it.unibz.inf.ontouml.vp.actionset1.toolbar1/#">
+				<actionController class="it.unibz.inf.ontouml.vp.actions.ReloadPluginAction" />
+			</action>
+			<action 
+					id="it.unibz.inf.ontouml.vp.actions.TestAction"
+					actionType="generalAction"
+					description="Executes some snipet of code in order to test the plugin."
+					style="normal"
+					tooltip="Executes some snipet of code for test purposes." 
+					icon="icons/experiment.png"
+					label="Run Test (DEBUG ONLY)"
+					toolbarPath="it.unibz.inf.ontouml.vp.actionset1.toolbar1/#">
+				<actionController class="it.unibz.inf.ontouml.vp.actions.TestAction" />
+			</action>
+		</actionSet>
+	</actionSets>
+</plugin>

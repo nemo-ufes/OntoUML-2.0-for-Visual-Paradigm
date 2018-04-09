@@ -1,0 +1,134 @@
+@Ecore(nsURI="http://www.inf.unibz.it/ontouml/xtext/xcore")
+@GenModel(modelDirectory="it.unibz.inf.ontouml.xtext.xcore/src-gen")
+package it.unibz.inf.ontouml.xtext.xcore
+
+import org.eclipse.emf.ecore.EEList
+import org.eclipse.emf.common.util.BasicEList
+
+class Model
+{
+	contains ModelElement[] elements
+	
+	op EEList<ModelElement> getAllElements()
+	{
+		val list = new BasicEList<ModelElement>()
+		elements.forEach
+		[ 
+			list.add(it)
+			if(it instanceof Package)
+				list.addAll(it.allContents)
+		]
+		list
+	}
+}
+
+class ModelElement 
+{
+	String name
+	String alias = "unnamed"
+	
+	op Model getContainerModel()
+	{
+		if(eContainer instanceof Package)
+			return (eContainer as Package).containerModel
+		return eContainer as Model
+	}
+}
+
+class Package extends ModelElement
+{
+	contains ModelElement[] contents
+	
+	op EEList<ModelElement> getAllContents()
+	{
+		val list = new BasicEList<ModelElement>()
+		contents.forEach
+		[ 
+			list.add(it)
+			if(it instanceof Package)
+				list.addAll(it.allContents)
+		]
+		list
+	}
+}
+
+class OntoUMLClass extends ModelElement
+{
+	EndurantType _type
+	
+	op EEList<OntoUMLClass> getSuperClasses()
+	{
+		val supers = new BasicEList<OntoUMLClass>()
+		containerModel.allElements.forEach
+		[ 
+			if(it instanceof Generalization)
+				if(it.subclass==this)
+					supers.add(it.superclass)
+		]
+		supers
+	}
+	
+	op boolean isUltimateSortal()
+	{
+		return _type==EndurantType.KIND 
+				|| _type==EndurantType.RELATOR_KIND 
+				|| _type==EndurantType.MODE_KIND 
+				|| _type==EndurantType.QUALITY_KIND
+	}
+	op boolean isSortal() 
+	{ 
+		return isUltimateSortal
+				|| _type==EndurantType.SUBKIND
+				|| _type==EndurantType.ROLE
+				|| _type==EndurantType.PHASE
+	}
+	op boolean isNonSortal()
+	{
+		return !isSortal && _type!=EndurantType.NONE
+	}
+	op boolean isRigid()
+	{
+		return !isSemiRigid && !isSemiRigid && _type!=EndurantType.NONE
+	}
+	op boolean isSemiRigid()
+	{
+		return _type==EndurantType.MIXIN
+	}
+	op boolean isAntiRigid()
+	{
+		return _type==EndurantType.ROLE
+				|| _type==EndurantType.PHASE 
+				|| _type==EndurantType.ROLE_MIXIN
+				|| _type==EndurantType.PHASE_MIXIN
+	}
+}
+
+enum EndurantType 
+{
+	None as "none" = 0
+	Kind as "kind" = 1
+	RelatorKind as "relatorKind" = 2
+	ModeKind as "modeKind" = 3
+	QualityKind as "qualityKind" = 4
+	Subkind as "subkind" = 5
+	Role as "role" = 6
+	Phase as "phase" = 7
+	Category as "category" = 8
+	Mixin as "mixin" = 9
+	RoleMixin as "roleMixin" = 10
+	PhaseMixin as "phaseMixin" = 11
+}
+
+class Generalization extends ModelElement
+{
+	refers OntoUMLClass superclass
+	refers OntoUMLClass subclass
+}
+
+class GeneralizationSet extends ModelElement
+{
+	boolean isDisjoint = "false"
+	boolean isComplete = "false"
+	
+	refers Generalization[] generalizations
+}
