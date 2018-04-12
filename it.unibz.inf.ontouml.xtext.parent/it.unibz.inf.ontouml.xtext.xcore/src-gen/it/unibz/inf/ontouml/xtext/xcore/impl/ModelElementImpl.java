@@ -2,16 +2,13 @@
  */
 package it.unibz.inf.ontouml.xtext.xcore.impl;
 
-import it.unibz.inf.ontouml.xtext.xcore.Model;
 import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -39,6 +36,7 @@ public class ModelElementImpl extends MinimalEObjectImpl.Container implements Mo
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -58,6 +56,7 @@ public class ModelElementImpl extends MinimalEObjectImpl.Container implements Mo
 	 * @ordered
 	 */
 	protected static final String ALIAS_EDEFAULT = "unnamed";
+
 	/**
 	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -134,21 +133,6 @@ public class ModelElementImpl extends MinimalEObjectImpl.Container implements Mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model getContainerModel() {
-		EObject _eContainer = this.eContainer();
-		if ((_eContainer instanceof it.unibz.inf.ontouml.xtext.xcore.Package)) {
-			EObject _eContainer_1 = this.eContainer();
-			return ((it.unibz.inf.ontouml.xtext.xcore.Package) _eContainer_1).getContainerModel();
-		}
-		EObject _eContainer_2 = this.eContainer();
-		return ((Model) _eContainer_2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -210,20 +194,6 @@ public class ModelElementImpl extends MinimalEObjectImpl.Container implements Mo
 				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case XcorePackage.MODEL_ELEMENT___GET_CONTAINER_MODEL:
-				return getContainerModel();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

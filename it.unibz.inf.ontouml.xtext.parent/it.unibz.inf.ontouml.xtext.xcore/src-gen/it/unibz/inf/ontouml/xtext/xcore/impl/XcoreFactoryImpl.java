@@ -2,14 +2,8 @@
  */
 package it.unibz.inf.ontouml.xtext.xcore.impl;
 
-import it.unibz.inf.ontouml.xtext.xcore.EndurantType;
-import it.unibz.inf.ontouml.xtext.xcore.Generalization;
-import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
-import it.unibz.inf.ontouml.xtext.xcore.Model;
-import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
-import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
-import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory;
-import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
+import it.unibz.inf.ontouml.xtext.xcore.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -65,7 +59,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 		switch (eClass.getClassifierID()) {
 			case XcorePackage.MODEL: return createModel();
 			case XcorePackage.MODEL_ELEMENT: return createModelElement();
-			case XcorePackage.PACKAGE: return createPackage();
 			case XcorePackage.ONTO_UML_CLASS: return createOntoUMLClass();
 			case XcorePackage.GENERALIZATION: return createGeneralization();
 			case XcorePackage.GENERALIZATION_SET: return createGeneralizationSet();
@@ -122,16 +115,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	public ModelElement createModelElement() {
 		ModelElementImpl modelElement = new ModelElementImpl();
 		return modelElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public it.unibz.inf.ontouml.xtext.xcore.Package createPackage() {
-		PackageImpl package_ = new PackageImpl();
-		return package_;
 	}
 
 	/**

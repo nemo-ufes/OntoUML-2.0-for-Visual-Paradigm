@@ -1,10 +1,8 @@
 ','=26
-'.'=27
-'Class'=29
+'Class'=27
 'Generalization'=30
 'GeneralizationSet'=33
 'Model'=23
-'Package'=28
 'category'=19
 'complete'=36
 'disjoint'=35
@@ -21,7 +19,9 @@
 'roleMixin'=21
 'subclass'=32
 'subkind'=16
+'subs...'=29
 'superclass'=31
+'supers...'=28
 '{'=24
 '}'=25
 RULE_ANY_OTHER=10

@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ModelElement extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,12 +75,4 @@ public interface ModelElement extends EObject {
 	 */
 	void setAlias(String value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.emf.ecore.EObject%&gt; _eContainer = this.eContainer();\nif ((_eContainer instanceof &lt;%it.unibz.inf.ontouml.xtext.xcore.Package%&gt;))\n{\n\t&lt;%org.eclipse.emf.ecore.EObject%&gt; _eContainer_1 = this.eContainer();\n\treturn ((&lt;%it.unibz.inf.ontouml.xtext.xcore.Package%&gt;) _eContainer_1).getContainerModel();\n}\n&lt;%org.eclipse.emf.ecore.EObject%&gt; _eContainer_2 = this.eContainer();\nreturn ((&lt;%it.unibz.inf.ontouml.xtext.xcore.Model%&gt;) _eContainer_2);'"
-	 * @generated
-	 */
-	Model getContainerModel();
 } // ModelElement

@@ -2,12 +2,8 @@
  */
 package it.unibz.inf.ontouml.xtext.xcore.util;
 
-import it.unibz.inf.ontouml.xtext.xcore.Generalization;
-import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
-import it.unibz.inf.ontouml.xtext.xcore.Model;
-import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
-import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
-import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
+import it.unibz.inf.ontouml.xtext.xcore.*;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -82,13 +78,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XcorePackage.PACKAGE: {
-				it.unibz.inf.ontouml.xtext.xcore.Package package_ = (it.unibz.inf.ontouml.xtext.xcore.Package)theEObject;
-				T result = casePackage(package_);
-				if (result == null) result = caseModelElement(package_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case XcorePackage.ONTO_UML_CLASS: {
 				OntoUMLClass ontoUMLClass = (OntoUMLClass)theEObject;
 				T result = caseOntoUMLClass(ontoUMLClass);
@@ -141,21 +130,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseModelElement(ModelElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Package</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePackage(it.unibz.inf.ontouml.xtext.xcore.Package object) {
 		return null;
 	}
 

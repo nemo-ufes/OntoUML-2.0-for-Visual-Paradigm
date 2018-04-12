@@ -8,17 +8,16 @@ import com.google.inject.Inject
 
 class ModelUtils {
 	
-	@Inject extension ModelUtils
+//	@Inject extension ModelUtils
 	
 	def Set<OntoUMLClass> getClassHierarchy(OntoUMLClass c)
 	{
 		val ch = new HashSet<OntoUMLClass>()
-		return getClassHierarchy(c, ch)
+		c.classHierarchy(ch)
 	}
 	
-	private def Set<OntoUMLClass> getClassHierarchy(OntoUMLClass c, Set<OntoUMLClass> ch)
-	{
-		for (current : c.superClasses) {
+	def private Set<OntoUMLClass> classHierarchy(OntoUMLClass c, Set<OntoUMLClass> ch) {
+		for (current : c.superclasses) {
 			if (!ch.contains(current)) {
 				ch.add(current)
 				ch.addAll(current.classHierarchy(ch))

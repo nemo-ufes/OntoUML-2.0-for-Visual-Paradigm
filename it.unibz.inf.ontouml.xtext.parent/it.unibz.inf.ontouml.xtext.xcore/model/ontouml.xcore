@@ -9,16 +9,9 @@ class Model
 {
 	contains ModelElement[] elements
 	
-	op EEList<ModelElement> getAllElements()
+	op ModelElement getElementByName(String name)
 	{
-		val list = new BasicEList<ModelElement>()
-		elements.forEach
-		[ 
-			list.add(it)
-			if(it instanceof Package)
-				list.addAll(it.allContents)
-		]
-		list
+		return elements.findFirst[ it.name==name ]
 	}
 }
 
@@ -26,46 +19,26 @@ class ModelElement
 {
 	String name
 	String alias = "unnamed"
-	
-	op Model getContainerModel()
-	{
-		if(eContainer instanceof Package)
-			return (eContainer as Package).containerModel
-		return eContainer as Model
-	}
-}
-
-class Package extends ModelElement
-{
-	contains ModelElement[] contents
-	
-	op EEList<ModelElement> getAllContents()
-	{
-		val list = new BasicEList<ModelElement>()
-		contents.forEach
-		[ 
-			list.add(it)
-			if(it instanceof Package)
-				list.addAll(it.allContents)
-		]
-		list
-	}
 }
 
 class OntoUMLClass extends ModelElement
 {
 	EndurantType _type
 	
-	op EEList<OntoUMLClass> getSuperClasses()
+	refers Generalization[] generalizationsToSuperclasses
+	refers Generalization[] generalizationsToSubclasses
+	
+	op EEList<OntoUMLClass> getSuperclasses()
 	{
 		val supers = new BasicEList<OntoUMLClass>()
-		containerModel.allElements.forEach
-		[ 
-			if(it instanceof Generalization)
-				if(it.subclass==this)
-					supers.add(it.superclass)
-		]
+		generalizationsToSuperclasses.forEach[ supers.add(it.superclass) ]
 		supers
+	}
+	op EEList<OntoUMLClass> getSubclasses()
+	{
+		val subs = new BasicEList<OntoUMLClass>()
+		generalizationsToSubclasses.forEach[ subs.add(it.superclass) ]
+		subs
 	}
 	
 	op boolean isUltimateSortal()

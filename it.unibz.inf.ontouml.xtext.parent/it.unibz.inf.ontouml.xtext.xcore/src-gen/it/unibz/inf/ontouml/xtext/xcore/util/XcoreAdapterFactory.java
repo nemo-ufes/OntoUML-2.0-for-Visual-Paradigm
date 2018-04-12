@@ -2,12 +2,8 @@
  */
 package it.unibz.inf.ontouml.xtext.xcore.util;
 
-import it.unibz.inf.ontouml.xtext.xcore.Generalization;
-import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
-import it.unibz.inf.ontouml.xtext.xcore.Model;
-import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
-import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
-import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
+import it.unibz.inf.ontouml.xtext.xcore.*;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -80,10 +76,6 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public Adapter casePackage(it.unibz.inf.ontouml.xtext.xcore.Package object) {
-				return createPackageAdapter();
-			}
-			@Override
 			public Adapter caseOntoUMLClass(OntoUMLClass object) {
 				return createOntoUMLClassAdapter();
 			}
@@ -140,20 +132,6 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModelElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.xtext.xcore.Package <em>Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.Package
-	 * @generated
-	 */
-	public Adapter createPackageAdapter() {
 		return null;
 	}
 

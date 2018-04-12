@@ -2,6 +2,7 @@
  */
 package it.unibz.inf.ontouml.xtext.xcore.impl;
 
+import com.google.common.base.Objects;
 import it.unibz.inf.ontouml.xtext.xcore.Model;
 import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
@@ -9,10 +10,8 @@ import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-import java.util.function.Consumer;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -22,6 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,21 +84,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModelElement> getAllElements() {
-		BasicEList<ModelElement> _xblockexpression = null; {
-			final BasicEList<ModelElement> list = new BasicEList<ModelElement>();
-			final Consumer<ModelElement> _function = new Consumer<ModelElement>() {
-				public void accept(final ModelElement it) {
-					list.add(it);
-					if ((it instanceof it.unibz.inf.ontouml.xtext.xcore.Package)) {
-						list.addAll(((it.unibz.inf.ontouml.xtext.xcore.Package)it).getAllContents());
-					}
-				}
-			};
-			this.getElements().forEach(_function);
-			_xblockexpression = list;
-		}
-		return _xblockexpression;
+	public ModelElement getElementByName(final String name) {
+		final Function1<ModelElement, Boolean> _function = new Function1<ModelElement, Boolean>() {
+			public Boolean apply(final ModelElement it) {
+				String _name = it.getName();
+				return Boolean.valueOf(Objects.equal(_name, name));
+			}
+		};
+		return IterableExtensions.<ModelElement>findFirst(this.getElements(), _function);
 	}
 
 	/**
@@ -182,8 +176,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case XcorePackage.MODEL___GET_ALL_ELEMENTS:
-				return getAllElements();
+			case XcorePackage.MODEL___GET_ELEMENT_BY_NAME__STRING:
+				return getElementByName((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

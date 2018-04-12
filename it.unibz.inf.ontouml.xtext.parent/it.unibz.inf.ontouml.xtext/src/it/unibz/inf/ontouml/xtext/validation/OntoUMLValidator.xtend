@@ -6,6 +6,8 @@ package it.unibz.inf.ontouml.xtext.validation
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.CheckType
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass
+import com.google.inject.Inject
+import it.unibz.inf.ontouml.xtext.utils.ModelUtils
 
 /**
  * This class contains custom validation rules. 
@@ -13,6 +15,8 @@ import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class OntoUMLValidator extends AbstractOntoUMLValidator {
+	
+	@Inject extension ModelUtils
 	
 //	public static val INVALID_NAME = 'invalidName'
 //
@@ -25,9 +29,9 @@ class OntoUMLValidator extends AbstractOntoUMLValidator {
 //		}
 //	}
 
-	@Check(CheckType.NORMAL)
-	def checkUltimateSortalSpecialization(OntoUMLClass c){
-		if(c.isSortal && c.classHierarchy)
-	}
+//	@Check(CheckType.NORMAL)
+//	def checkUltimateSortalSpecialization(OntoUMLClass c){
+//		if(c.isSortal && c.classHierarchy.isEmpty)
+//	}
 	
 }

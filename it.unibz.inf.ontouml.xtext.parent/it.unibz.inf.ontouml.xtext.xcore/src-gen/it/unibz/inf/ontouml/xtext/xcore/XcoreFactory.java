@@ -40,15 +40,6 @@ public interface XcoreFactory extends EFactory {
 	ModelElement createModelElement();
 
 	/**
-	 * Returns a new object of class '<em>Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Package</em>'.
-	 * @generated
-	 */
-	Package createPackage();
-
-	/**
 	 * Returns a new object of class '<em>Onto UML Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -26,7 +26,9 @@ public enum EndurantType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NONE(0, "None", "none"), /**
+	NONE(0, "None", "none"),
+
+	/**
 	 * The '<em><b>Kind</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

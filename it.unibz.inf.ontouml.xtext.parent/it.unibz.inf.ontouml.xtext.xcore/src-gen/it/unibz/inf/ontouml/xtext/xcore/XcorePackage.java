@@ -88,13 +88,13 @@ public interface XcorePackage extends EPackage {
 	int MODEL_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>Get All Elements</em>' operation.
+	 * The operation id for the '<em>Get Element By Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL___GET_ALL_ELEMENTS = 0;
+	int MODEL___GET_ELEMENT_BY_NAME__STRING = 0;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -143,95 +143,13 @@ public interface XcorePackage extends EPackage {
 	int MODEL_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Get Container Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT___GET_CONTAINER_MODEL = 0;
-
-	/**
 	 * The number of operations of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.PackageImpl <em>Package</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see it.unibz.inf.ontouml.xtext.xcore.impl.PackageImpl
-	 * @see it.unibz.inf.ontouml.xtext.xcore.impl.XcorePackageImpl#getPackage()
-	 * @generated
-	 */
-	int PACKAGE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__ALIAS = MODEL_ELEMENT__ALIAS;
-
-	/**
-	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__CONTENTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Container Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE___GET_CONTAINER_MODEL = MODEL_ELEMENT___GET_CONTAINER_MODEL;
-
-	/**
-	 * The operation id for the '<em>Get All Contents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE___GET_ALL_CONTENTS = MODEL_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 1;
+	int MODEL_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.OntoUMLClassImpl <em>Onto UML Class</em>}' class.
@@ -241,7 +159,7 @@ public interface XcorePackage extends EPackage {
 	 * @see it.unibz.inf.ontouml.xtext.xcore.impl.XcorePackageImpl#getOntoUMLClass()
 	 * @generated
 	 */
-	int ONTO_UML_CLASS = 3;
+	int ONTO_UML_CLASS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -271,31 +189,49 @@ public interface XcorePackage extends EPackage {
 	int ONTO_UML_CLASS__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Generalizations To Superclasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Generalizations To Subclasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Onto UML Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int ONTO_UML_CLASS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Container Model</em>' operation.
+	 * The operation id for the '<em>Get Superclasses</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___GET_CONTAINER_MODEL = MODEL_ELEMENT___GET_CONTAINER_MODEL;
+	int ONTO_UML_CLASS___GET_SUPERCLASSES = MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Super Classes</em>' operation.
+	 * The operation id for the '<em>Get Subclasses</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___GET_SUPER_CLASSES = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int ONTO_UML_CLASS___GET_SUBCLASSES = MODEL_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Ultimate Sortal</em>' operation.
@@ -304,7 +240,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___IS_ULTIMATE_SORTAL = MODEL_ELEMENT_OPERATION_COUNT + 1;
+	int ONTO_UML_CLASS___IS_ULTIMATE_SORTAL = MODEL_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Sortal</em>' operation.
@@ -313,7 +249,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___IS_SORTAL = MODEL_ELEMENT_OPERATION_COUNT + 2;
+	int ONTO_UML_CLASS___IS_SORTAL = MODEL_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Non Sortal</em>' operation.
@@ -322,7 +258,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___IS_NON_SORTAL = MODEL_ELEMENT_OPERATION_COUNT + 3;
+	int ONTO_UML_CLASS___IS_NON_SORTAL = MODEL_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Rigid</em>' operation.
@@ -331,7 +267,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___IS_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 4;
+	int ONTO_UML_CLASS___IS_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Semi Rigid</em>' operation.
@@ -340,7 +276,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___IS_SEMI_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 5;
+	int ONTO_UML_CLASS___IS_SEMI_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Anti Rigid</em>' operation.
@@ -349,7 +285,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS___IS_ANTI_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 6;
+	int ONTO_UML_CLASS___IS_ANTI_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Onto UML Class</em>' class.
@@ -358,8 +294,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 7;
-
+	int ONTO_UML_CLASS_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.GeneralizationImpl <em>Generalization</em>}' class.
@@ -369,7 +304,7 @@ public interface XcorePackage extends EPackage {
 	 * @see it.unibz.inf.ontouml.xtext.xcore.impl.XcorePackageImpl#getGeneralization()
 	 * @generated
 	 */
-	int GENERALIZATION = 4;
+	int GENERALIZATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -417,15 +352,6 @@ public interface XcorePackage extends EPackage {
 	int GENERALIZATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Container Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERALIZATION___GET_CONTAINER_MODEL = MODEL_ELEMENT___GET_CONTAINER_MODEL;
-
-	/**
 	 * The number of operations of the '<em>Generalization</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,7 +368,7 @@ public interface XcorePackage extends EPackage {
 	 * @see it.unibz.inf.ontouml.xtext.xcore.impl.XcorePackageImpl#getGeneralizationSet()
 	 * @generated
 	 */
-	int GENERALIZATION_SET = 5;
+	int GENERALIZATION_SET = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -499,15 +425,6 @@ public interface XcorePackage extends EPackage {
 	int GENERALIZATION_SET_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Container Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERALIZATION_SET___GET_CONTAINER_MODEL = MODEL_ELEMENT___GET_CONTAINER_MODEL;
-
-	/**
 	 * The number of operations of the '<em>Generalization Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,7 +441,7 @@ public interface XcorePackage extends EPackage {
 	 * @see it.unibz.inf.ontouml.xtext.xcore.impl.XcorePackageImpl#getEndurantType()
 	 * @generated
 	 */
-	int ENDURANT_TYPE = 6;
+	int ENDURANT_TYPE = 5;
 
 
 	/**
@@ -549,14 +466,14 @@ public interface XcorePackage extends EPackage {
 	EReference getModel_Elements();
 
 	/**
-	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.Model#getAllElements() <em>Get All Elements</em>}' operation.
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.Model#getElementByName(java.lang.String) <em>Get Element By Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Elements</em>' operation.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.Model#getAllElements()
+	 * @return the meta object for the '<em>Get Element By Name</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.Model#getElementByName(java.lang.String)
 	 * @generated
 	 */
-	EOperation getModel__GetAllElements();
+	EOperation getModel__GetElementByName__String();
 
 	/**
 	 * Returns the meta object for class '{@link it.unibz.inf.ontouml.xtext.xcore.ModelElement <em>Model Element</em>}'.
@@ -591,47 +508,6 @@ public interface XcorePackage extends EPackage {
 	EAttribute getModelElement_Alias();
 
 	/**
-	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.ModelElement#getContainerModel() <em>Get Container Model</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Container Model</em>' operation.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.ModelElement#getContainerModel()
-	 * @generated
-	 */
-	EOperation getModelElement__GetContainerModel();
-
-	/**
-	 * Returns the meta object for class '{@link it.unibz.inf.ontouml.xtext.xcore.Package <em>Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Package</em>'.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.Package
-	 * @generated
-	 */
-	EClass getPackage();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link it.unibz.inf.ontouml.xtext.xcore.Package#getContents <em>Contents</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contents</em>'.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.Package#getContents()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_Contents();
-
-	/**
-	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.Package#getAllContents() <em>Get All Contents</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Contents</em>' operation.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.Package#getAllContents()
-	 * @generated
-	 */
-	EOperation getPackage__GetAllContents();
-
-	/**
 	 * Returns the meta object for class '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass <em>Onto UML Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -653,14 +529,46 @@ public interface XcorePackage extends EPackage {
 	EAttribute getOntoUMLClass__type();
 
 	/**
-	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getSuperClasses() <em>Get Super Classes</em>}' operation.
+	 * Returns the meta object for the reference list '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getGeneralizationsToSuperclasses <em>Generalizations To Superclasses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Super Classes</em>' operation.
-	 * @see it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getSuperClasses()
+	 * @return the meta object for the reference list '<em>Generalizations To Superclasses</em>'.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getGeneralizationsToSuperclasses()
+	 * @see #getOntoUMLClass()
 	 * @generated
 	 */
-	EOperation getOntoUMLClass__GetSuperClasses();
+	EReference getOntoUMLClass_GeneralizationsToSuperclasses();
+
+	/**
+	 * Returns the meta object for the reference list '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getGeneralizationsToSubclasses <em>Generalizations To Subclasses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Generalizations To Subclasses</em>'.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getGeneralizationsToSubclasses()
+	 * @see #getOntoUMLClass()
+	 * @generated
+	 */
+	EReference getOntoUMLClass_GeneralizationsToSubclasses();
+
+	/**
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getSuperclasses() <em>Get Superclasses</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Superclasses</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getSuperclasses()
+	 * @generated
+	 */
+	EOperation getOntoUMLClass__GetSuperclasses();
+
+	/**
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getSubclasses() <em>Get Subclasses</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Subclasses</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#getSubclasses()
+	 * @generated
+	 */
+	EOperation getOntoUMLClass__GetSubclasses();
 
 	/**
 	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#isUltimateSortal() <em>Is Ultimate Sortal</em>}' operation.
@@ -849,12 +757,12 @@ public interface XcorePackage extends EPackage {
 		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Elements</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Element By Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MODEL___GET_ALL_ELEMENTS = eINSTANCE.getModel__GetAllElements();
+		EOperation MODEL___GET_ELEMENT_BY_NAME__STRING = eINSTANCE.getModel__GetElementByName__String();
 
 		/**
 		 * The meta object literal for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.ModelElementImpl <em>Model Element</em>}' class.
@@ -883,40 +791,6 @@ public interface XcorePackage extends EPackage {
 		EAttribute MODEL_ELEMENT__ALIAS = eINSTANCE.getModelElement_Alias();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Container Model</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MODEL_ELEMENT___GET_CONTAINER_MODEL = eINSTANCE.getModelElement__GetContainerModel();
-
-		/**
-		 * The meta object literal for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.PackageImpl <em>Package</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see it.unibz.inf.ontouml.xtext.xcore.impl.PackageImpl
-		 * @see it.unibz.inf.ontouml.xtext.xcore.impl.XcorePackageImpl#getPackage()
-		 * @generated
-		 */
-		EClass PACKAGE = eINSTANCE.getPackage();
-
-		/**
-		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__CONTENTS = eINSTANCE.getPackage_Contents();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Contents</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PACKAGE___GET_ALL_CONTENTS = eINSTANCE.getPackage__GetAllContents();
-
-		/**
 		 * The meta object literal for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.OntoUMLClassImpl <em>Onto UML Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -935,12 +809,36 @@ public interface XcorePackage extends EPackage {
 		EAttribute ONTO_UML_CLASS__TYPE = eINSTANCE.getOntoUMLClass__type();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Super Classes</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generalizations To Superclasses</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ONTO_UML_CLASS___GET_SUPER_CLASSES = eINSTANCE.getOntoUMLClass__GetSuperClasses();
+		EReference ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES = eINSTANCE.getOntoUMLClass_GeneralizationsToSuperclasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Generalizations To Subclasses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES = eINSTANCE.getOntoUMLClass_GeneralizationsToSubclasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Superclasses</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ONTO_UML_CLASS___GET_SUPERCLASSES = eINSTANCE.getOntoUMLClass__GetSuperclasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Subclasses</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ONTO_UML_CLASS___GET_SUBCLASSES = eINSTANCE.getOntoUMLClass__GetSubclasses();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Ultimate Sortal</b></em>' operation.

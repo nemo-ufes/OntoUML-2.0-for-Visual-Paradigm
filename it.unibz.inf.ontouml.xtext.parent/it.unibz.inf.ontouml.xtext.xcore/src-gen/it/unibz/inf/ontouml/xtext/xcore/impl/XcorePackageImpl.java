@@ -48,13 +48,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass packageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass ontoUMLClassEClass = null;
 
 	/**
@@ -165,7 +158,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getModel__GetAllElements() {
+	public EOperation getModel__GetElementByName__String() {
 		return modelEClass.getEOperations().get(0);
 	}
 
@@ -201,42 +194,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getModelElement__GetContainerModel() {
-		return modelElementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPackage() {
-		return packageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPackage_Contents() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPackage__GetAllContents() {
-		return packageEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getOntoUMLClass() {
 		return ontoUMLClassEClass;
 	}
@@ -255,7 +212,25 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__GetSuperClasses() {
+	public EReference getOntoUMLClass_GeneralizationsToSuperclasses() {
+		return (EReference)ontoUMLClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOntoUMLClass_GeneralizationsToSubclasses() {
+		return (EReference)ontoUMLClassEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOntoUMLClass__GetSuperclasses() {
 		return ontoUMLClassEClass.getEOperations().get(0);
 	}
 
@@ -264,7 +239,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__IsUltimateSortal() {
+	public EOperation getOntoUMLClass__GetSubclasses() {
 		return ontoUMLClassEClass.getEOperations().get(1);
 	}
 
@@ -273,7 +248,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__IsSortal() {
+	public EOperation getOntoUMLClass__IsUltimateSortal() {
 		return ontoUMLClassEClass.getEOperations().get(2);
 	}
 
@@ -282,7 +257,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__IsNonSortal() {
+	public EOperation getOntoUMLClass__IsSortal() {
 		return ontoUMLClassEClass.getEOperations().get(3);
 	}
 
@@ -291,7 +266,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__IsRigid() {
+	public EOperation getOntoUMLClass__IsNonSortal() {
 		return ontoUMLClassEClass.getEOperations().get(4);
 	}
 
@@ -300,7 +275,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__IsSemiRigid() {
+	public EOperation getOntoUMLClass__IsRigid() {
 		return ontoUMLClassEClass.getEOperations().get(5);
 	}
 
@@ -309,8 +284,17 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOntoUMLClass__IsAntiRigid() {
+	public EOperation getOntoUMLClass__IsSemiRigid() {
 		return ontoUMLClassEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOntoUMLClass__IsAntiRigid() {
+		return ontoUMLClassEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -415,20 +399,18 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__ELEMENTS);
-		createEOperation(modelEClass, MODEL___GET_ALL_ELEMENTS);
+		createEOperation(modelEClass, MODEL___GET_ELEMENT_BY_NAME__STRING);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__ALIAS);
-		createEOperation(modelElementEClass, MODEL_ELEMENT___GET_CONTAINER_MODEL);
-
-		packageEClass = createEClass(PACKAGE);
-		createEReference(packageEClass, PACKAGE__CONTENTS);
-		createEOperation(packageEClass, PACKAGE___GET_ALL_CONTENTS);
 
 		ontoUMLClassEClass = createEClass(ONTO_UML_CLASS);
 		createEAttribute(ontoUMLClassEClass, ONTO_UML_CLASS__TYPE);
-		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___GET_SUPER_CLASSES);
+		createEReference(ontoUMLClassEClass, ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES);
+		createEReference(ontoUMLClassEClass, ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES);
+		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___GET_SUPERCLASSES);
+		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___GET_SUBCLASSES);
 		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_ULTIMATE_SORTAL);
 		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_SORTAL);
 		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_NON_SORTAL);
@@ -480,7 +462,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		packageEClass.getESuperTypes().add(this.getModelElement());
 		ontoUMLClassEClass.getESuperTypes().add(this.getModelElement());
 		generalizationEClass.getESuperTypes().add(this.getModelElement());
 		generalizationSetEClass.getESuperTypes().add(this.getModelElement());
@@ -489,31 +470,25 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Elements(), this.getModelElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getModel__GetAllElements(), null, "getAllElements", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(theEcorePackage.getEEList());
-		EGenericType g2 = createEGenericType(this.getModelElement());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		EOperation op = initEOperation(getModel__GetElementByName__String(), this.getModelElement(), "getElementByName", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelElement_Alias(), theEcorePackage.getEString(), "alias", "unnamed", 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getModelElement__GetContainerModel(), this.getModel(), "getContainerModel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEClass(ontoUMLClassEClass, OntoUMLClass.class, "OntoUMLClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOntoUMLClass__type(), this.getEndurantType(), "_type", null, 0, 1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOntoUMLClass_GeneralizationsToSuperclasses(), this.getGeneralization(), null, "generalizationsToSuperclasses", null, 0, -1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOntoUMLClass_GeneralizationsToSubclasses(), this.getGeneralization(), null, "generalizationsToSubclasses", null, 0, -1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(packageEClass, it.unibz.inf.ontouml.xtext.xcore.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackage_Contents(), this.getModelElement(), null, "contents", null, 0, -1, it.unibz.inf.ontouml.xtext.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getPackage__GetAllContents(), null, "getAllContents", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theEcorePackage.getEEList());
-		g2 = createEGenericType(this.getModelElement());
+		op = initEOperation(getOntoUMLClass__GetSuperclasses(), null, "getSuperclasses", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(theEcorePackage.getEEList());
+		EGenericType g2 = createEGenericType(this.getOntoUMLClass());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		initEClass(ontoUMLClassEClass, OntoUMLClass.class, "OntoUMLClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOntoUMLClass__type(), this.getEndurantType(), "_type", null, 0, 1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getOntoUMLClass__GetSuperClasses(), null, "getSuperClasses", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getOntoUMLClass__GetSubclasses(), null, "getSubclasses", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theEcorePackage.getEEList());
 		g2 = createEGenericType(this.getOntoUMLClass());
 		g1.getETypeArguments().add(g2);

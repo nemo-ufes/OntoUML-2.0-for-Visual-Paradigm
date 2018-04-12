@@ -3,10 +3,10 @@
  */
 package it.unibz.inf.ontouml.xtext.validation;
 
+import com.google.inject.Inject;
+import it.unibz.inf.ontouml.xtext.utils.ModelUtils;
 import it.unibz.inf.ontouml.xtext.validation.AbstractOntoUMLValidator;
-import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
-import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.validation.CheckType;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * This class contains custom validation rules.
@@ -15,10 +15,7 @@ import org.eclipse.xtext.validation.CheckType;
  */
 @SuppressWarnings("all")
 public class OntoUMLValidator extends AbstractOntoUMLValidator {
-  @Check(CheckType.NORMAL)
-  public Object checkUltimateSortalSpecialization(final OntoUMLClass c) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nno viable alternative at input \'}\'"
-      + "\nThe method or field classHierarchy is undefined for the type OntoUMLClass");
-  }
+  @Inject
+  @Extension
+  private ModelUtils _modelUtils;
 }

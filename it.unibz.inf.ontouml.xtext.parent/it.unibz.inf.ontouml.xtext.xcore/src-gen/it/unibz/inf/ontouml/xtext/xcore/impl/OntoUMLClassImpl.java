@@ -3,21 +3,28 @@
 package it.unibz.inf.ontouml.xtext.xcore.impl;
 
 import com.google.common.base.Objects;
+
 import it.unibz.inf.ontouml.xtext.xcore.EndurantType;
 import it.unibz.inf.ontouml.xtext.xcore.Generalization;
-import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
 
 import java.lang.reflect.InvocationTargetException;
+
+import java.util.Collection;
+
 import java.util.function.Consumer;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +35,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link it.unibz.inf.ontouml.xtext.xcore.impl.OntoUMLClassImpl#get_type <em>type</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.xtext.xcore.impl.OntoUMLClassImpl#getGeneralizationsToSuperclasses <em>Generalizations To Superclasses</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.xtext.xcore.impl.OntoUMLClassImpl#getGeneralizationsToSubclasses <em>Generalizations To Subclasses</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +61,26 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * @ordered
 	 */
 	protected EndurantType _type = _TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getGeneralizationsToSuperclasses() <em>Generalizations To Superclasses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeneralizationsToSuperclasses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Generalization> generalizationsToSuperclasses;
+
+	/**
+	 * The cached value of the '{@link #getGeneralizationsToSubclasses() <em>Generalizations To Subclasses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeneralizationsToSubclasses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Generalization> generalizationsToSubclasses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,22 +127,59 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<OntoUMLClass> getSuperClasses() {
+	public EList<Generalization> getGeneralizationsToSuperclasses() {
+		if (generalizationsToSuperclasses == null) {
+			generalizationsToSuperclasses = new EObjectResolvingEList<Generalization>(Generalization.class, this, XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES);
+		}
+		return generalizationsToSuperclasses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Generalization> getGeneralizationsToSubclasses() {
+		if (generalizationsToSubclasses == null) {
+			generalizationsToSubclasses = new EObjectResolvingEList<Generalization>(Generalization.class, this, XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES);
+		}
+		return generalizationsToSubclasses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<OntoUMLClass> getSuperclasses() {
 		BasicEList<OntoUMLClass> _xblockexpression = null; {
 			final BasicEList<OntoUMLClass> supers = new BasicEList<OntoUMLClass>();
-			final Consumer<ModelElement> _function = new Consumer<ModelElement>() {
-				public void accept(final ModelElement it) {
-					if ((it instanceof Generalization)) {
-						OntoUMLClass _subclass = ((Generalization)it).getSubclass();
-						boolean _equals = Objects.equal(_subclass, OntoUMLClassImpl.this);
-						if (_equals) {
-							supers.add(((Generalization)it).getSuperclass());
-						}
-					}
+			final Consumer<Generalization> _function = new Consumer<Generalization>() {
+				public void accept(final Generalization it) {
+					supers.add(it.getSuperclass());
 				}
 			};
-			this.getContainerModel().getAllElements().forEach(_function);
+			this.getGeneralizationsToSuperclasses().forEach(_function);
 			_xblockexpression = supers;
+		}
+		return _xblockexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<OntoUMLClass> getSubclasses() {
+		BasicEList<OntoUMLClass> _xblockexpression = null; {
+			final BasicEList<OntoUMLClass> subs = new BasicEList<OntoUMLClass>();
+			final Consumer<Generalization> _function = new Consumer<Generalization>() {
+				public void accept(final Generalization it) {
+					subs.add(it.getSuperclass());
+				}
+			};
+			this.getGeneralizationsToSubclasses().forEach(_function);
+			_xblockexpression = subs;
 		}
 		return _xblockexpression;
 	}
@@ -183,6 +249,10 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 		switch (featureID) {
 			case XcorePackage.ONTO_UML_CLASS__TYPE:
 				return get_type();
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES:
+				return getGeneralizationsToSuperclasses();
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES:
+				return getGeneralizationsToSubclasses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,11 +262,20 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XcorePackage.ONTO_UML_CLASS__TYPE:
 				set_type((EndurantType)newValue);
+				return;
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES:
+				getGeneralizationsToSuperclasses().clear();
+				getGeneralizationsToSuperclasses().addAll((Collection<? extends Generalization>)newValue);
+				return;
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES:
+				getGeneralizationsToSubclasses().clear();
+				getGeneralizationsToSubclasses().addAll((Collection<? extends Generalization>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,6 +292,12 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 			case XcorePackage.ONTO_UML_CLASS__TYPE:
 				set_type(_TYPE_EDEFAULT);
 				return;
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES:
+				getGeneralizationsToSuperclasses().clear();
+				return;
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES:
+				getGeneralizationsToSubclasses().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -227,6 +312,10 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 		switch (featureID) {
 			case XcorePackage.ONTO_UML_CLASS__TYPE:
 				return _type != _TYPE_EDEFAULT;
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUPERCLASSES:
+				return generalizationsToSuperclasses != null && !generalizationsToSuperclasses.isEmpty();
+			case XcorePackage.ONTO_UML_CLASS__GENERALIZATIONS_TO_SUBCLASSES:
+				return generalizationsToSubclasses != null && !generalizationsToSubclasses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -239,8 +328,10 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case XcorePackage.ONTO_UML_CLASS___GET_SUPER_CLASSES:
-				return getSuperClasses();
+			case XcorePackage.ONTO_UML_CLASS___GET_SUPERCLASSES:
+				return getSuperclasses();
+			case XcorePackage.ONTO_UML_CLASS___GET_SUBCLASSES:
+				return getSubclasses();
 			case XcorePackage.ONTO_UML_CLASS___IS_ULTIMATE_SORTAL:
 				return isUltimateSortal();
 			case XcorePackage.ONTO_UML_CLASS___IS_SORTAL:
