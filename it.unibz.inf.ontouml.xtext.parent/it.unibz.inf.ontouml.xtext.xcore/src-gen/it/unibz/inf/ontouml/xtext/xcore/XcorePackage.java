@@ -288,13 +288,22 @@ public interface XcorePackage extends EPackage {
 	int ONTO_UML_CLASS___IS_ANTI_RIGID = MODEL_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Is Phase</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTO_UML_CLASS___IS_PHASE = MODEL_ELEMENT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Onto UML Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONTO_UML_CLASS_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 8;
+	int ONTO_UML_CLASS_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.GeneralizationImpl <em>Generalization</em>}' class.
@@ -352,13 +361,22 @@ public interface XcorePackage extends EPackage {
 	int GENERALIZATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Generalization Sets</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION___GET_GENERALIZATION_SETS = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Generalization</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int GENERALIZATION_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.GeneralizationSetImpl <em>Generalization Set</em>}' class.
@@ -425,13 +443,31 @@ public interface XcorePackage extends EPackage {
 	int GENERALIZATION_SET_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION_SET___GET_GENERIC = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Specifics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION_SET___GET_SPECIFICS = MODEL_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Generalization Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION_SET_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int GENERALIZATION_SET_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link it.unibz.inf.ontouml.xtext.xcore.EndurantType <em>Endurant Type</em>}' enum.
@@ -631,6 +667,16 @@ public interface XcorePackage extends EPackage {
 	EOperation getOntoUMLClass__IsAntiRigid();
 
 	/**
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#isPhase() <em>Is Phase</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Phase</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass#isPhase()
+	 * @generated
+	 */
+	EOperation getOntoUMLClass__IsPhase();
+
+	/**
 	 * Returns the meta object for class '{@link it.unibz.inf.ontouml.xtext.xcore.Generalization <em>Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -661,6 +707,16 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGeneralization_Subclass();
+
+	/**
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.Generalization#getGeneralizationSets() <em>Get Generalization Sets</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Generalization Sets</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.Generalization#getGeneralizationSets()
+	 * @generated
+	 */
+	EOperation getGeneralization__GetGeneralizationSets();
 
 	/**
 	 * Returns the meta object for class '{@link it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet <em>Generalization Set</em>}'.
@@ -704,6 +760,26 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGeneralizationSet_Generalizations();
+
+	/**
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet#getGeneric() <em>Get Generic</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Generic</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet#getGeneric()
+	 * @generated
+	 */
+	EOperation getGeneralizationSet__GetGeneric();
+
+	/**
+	 * Returns the meta object for the '{@link it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet#getSpecifics() <em>Get Specifics</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Specifics</em>' operation.
+	 * @see it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet#getSpecifics()
+	 * @generated
+	 */
+	EOperation getGeneralizationSet__GetSpecifics();
 
 	/**
 	 * Returns the meta object for enum '{@link it.unibz.inf.ontouml.xtext.xcore.EndurantType <em>Endurant Type</em>}'.
@@ -889,6 +965,14 @@ public interface XcorePackage extends EPackage {
 		EOperation ONTO_UML_CLASS___IS_ANTI_RIGID = eINSTANCE.getOntoUMLClass__IsAntiRigid();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Phase</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ONTO_UML_CLASS___IS_PHASE = eINSTANCE.getOntoUMLClass__IsPhase();
+
+		/**
 		 * The meta object literal for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.GeneralizationImpl <em>Generalization</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -913,6 +997,14 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERALIZATION__SUBCLASS = eINSTANCE.getGeneralization_Subclass();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Generalization Sets</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERALIZATION___GET_GENERALIZATION_SETS = eINSTANCE.getGeneralization__GetGeneralizationSets();
 
 		/**
 		 * The meta object literal for the '{@link it.unibz.inf.ontouml.xtext.xcore.impl.GeneralizationSetImpl <em>Generalization Set</em>}' class.
@@ -947,6 +1039,22 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERALIZATION_SET__GENERALIZATIONS = eINSTANCE.getGeneralizationSet_Generalizations();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Generic</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERALIZATION_SET___GET_GENERIC = eINSTANCE.getGeneralizationSet__GetGeneric();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Specifics</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERALIZATION_SET___GET_SPECIFICS = eINSTANCE.getGeneralizationSet__GetSpecifics();
 
 		/**
 		 * The meta object literal for the '{@link it.unibz.inf.ontouml.xtext.xcore.EndurantType <em>Endurant Type</em>}' enum.

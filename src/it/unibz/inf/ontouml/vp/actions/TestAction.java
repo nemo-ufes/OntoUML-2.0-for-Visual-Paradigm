@@ -4,9 +4,19 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.Iterator;
 
+import org.apache.commons.io.output.ByteArrayOutputStream;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.resource.XtextResourceSet;
+
+import com.google.inject.Injector;
 import com.vp.plugin.ApplicationManager;
+import com.vp.plugin.ViewManager;
 import com.vp.plugin.action.VPAction;
 import com.vp.plugin.action.VPActionController;
 import com.vp.plugin.model.IClass;
@@ -15,13 +25,26 @@ import com.vp.plugin.model.IModelElement;
 import com.vp.plugin.model.IStereotype;
 import com.vp.plugin.model.factory.IModelElementFactory;
 
+//import br.ufes.inf.nemo.ml2.ML2StandaloneSetup;
+//import br.ufes.inf.nemo.ml2.meta.ML2Model;
+//import br.ufes.inf.nemo.ml2.meta.MetaFactory;
+import it.unibz.inf.ontouml.vp.OntoUMLPluginForVP;
 import it.unibz.inf.ontouml.vp.utils.StereotypeUtils;
+import it.unibz.inf.ontouml.xtext.OntoUMLStandaloneSetup;
+import it.unibz.inf.ontouml.xtext.xcore.Model;
+import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory;
 
 public class TestAction implements VPActionController {
 
+	private static Injector injector;
+	private static XtextResourceSet resourceSet;
+	
 	@Override
 	public void performAction(VPAction arg0) {
-		testClassRelationships();
+		outputMessages();
+//		showMessageOnLog();
+//		testStandaloneXtext();
+//		testClassRelationships();
 //		testGeneralizations();
 //		printAllElements();
 //		createStereotype();
@@ -32,6 +55,70 @@ public class TestAction implements VPActionController {
 	public void update(VPAction arg0) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private static void showMessageOnLog() {
+		ViewManager vm = ApplicationManager.instance().getViewManager();
+//		vm.showMessage("Hello World!");
+		vm.clearMessages(OntoUMLPluginForVP.PLUGIN_ID);
+//		vm.clearMessages(null);
+//		vm.showMessage("Hello World!");
+		vm.showMessage("Hello World!", OntoUMLPluginForVP.PLUGIN_ID);
+	}
+	
+	private static void outputMessages() {
+		ViewManager vm = ApplicationManager.instance().getViewManager();
+		vm.clearMessages("OntoUML Plugin");//OntoUMLPluginForVP.PLUGIN_ID);
+		vm.showMessage("[ERROR] The class \"SeriveAgreement\" is a non-sortal must be defined as abstract.", "OntoUML Plugin");
+		vm.showMessage("[INCOMPLETE] The class \"Customer\" is a non-sortal and must be specialized by some sortal in order to have instances.", "OntoUML Plugin");
+		vm.showMessage("[ERROR] The class \"Business Insurance Agreement\" is a substance sortal and cannot specialize other sortals (\"Insurance Agreement\").", "OntoUML Plugin");
+		vm.showMessage("[ERROR] The class \"Insurance Comapny\" is rigid and cannot specialize anti-rigid classes (\"Insurance Provider\", \"Provider\").", "OntoUML Plugin");
+		
+//		'''The class "«c.nameOrAlias»" is a ultimate sortal and cannot specialize '''+
+//		'''other ultimate sortals («FOR k : kinds»«IF kinds.head!=k», «ENDIF»"«k.nameOrAlias»"«ENDFOR»).'''
+	}
+	
+	private static void testStandaloneXtext() {
+		// do this only once per application
+		System.out.println("Get injector!");
+		if(injector == null)
+//			injector = new ML2StandaloneSetup().createInjectorAndDoEMFRegistration();
+			injector = new OntoUMLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		 
+		// obtain a resourceset from the injector
+		System.out.println("Get resource set!");
+		if(resourceSet == null)
+			resourceSet = injector.getInstance(XtextResourceSet.class);
+		
+		// create file
+		System.out.println("Create temp file!");
+		File user;
+		try {
+//			user = File.createTempFile("mymodel", ".ml2");
+			user = new File("/Users/claudenirmf/Desktop/mymodel.ml2");// File.createTempFile("mymodel", ".ml2");
+			user.createNewFile();
+//			user = File.createTempFile("mymodel", ".ontouml");
+	        // Delete the file when the virtual machine is terminated.
+//	        user.deleteOnExit();
+	        System.out.println(user.getAbsolutePath());
+	        
+	        // load a resource by URI, in this case from the file system
+	        System.out.println("Get resource!");
+	        Resource resource = resourceSet.createResource(URI.createFileURI("/Users/claudenirmf/Desktop/asd.ontouml"));//, true);
+	        
+	        System.out.println("Create model!");
+//	        resource.getContents().add(MetaFactory.eINSTANCE.createML2Model());
+//	        ML2Model m = MetaFactory.eINSTANCE.createML2Model();
+	        resource.getContents().add(XcoreFactory.eINSTANCE.createModel());
+	        
+//	        resource.save(Collections.EMPTY_MAP);
+//	        resource.save(new ByteArrayOutputStream(),null);
+	        resource.save(null);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("Success!");
 	}
 	
 	private static void createTempFile() {

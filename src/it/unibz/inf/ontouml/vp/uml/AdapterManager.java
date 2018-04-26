@@ -93,20 +93,33 @@ public class AdapterManager {
 		OntoUMLClass onto_class = (OntoUMLClass) model.getElementByName(uml_class.getPrefixedId());
 		List<Generalization> subs = onto_class.getGeneralizationsToSubclasses();
 		for (GeneralizationAdapter gen : uml_class.getGeneralizationsToSubclasses()) {
-			subs.add((Generalization) model.getElementByName(gen.getPrefixedId()));
+			onto_class.getGeneralizationsToSubclasses().add((Generalization) model.getElementByName(gen.getPrefixedId()));
 		}
 		List<Generalization> supers = onto_class.getGeneralizationsToSuperclasses();
 		for (GeneralizationAdapter gen : uml_class.getGeneralizationsToSuperclasses()) {
-			supers.add((Generalization) model.getElementByName(gen.getPrefixedId()));
+			onto_class.getGeneralizationsToSuperclasses().add((Generalization) model.getElementByName(gen.getPrefixedId()));
 		}
+		System.out.println(onto_class);
+		System.out.println(onto_class.getGeneralizationsToSubclasses());
+		System.out.println(onto_class.getGeneralizationsToSuperclasses());
 	}
 
-	private static void updateGeneralization(Model model, GeneralizationAdapter me) {
-		Generalization onto_gen = (OntoUMLClass) model.getElementByName(uml_class.getPrefixedId());
+	private static void updateGeneralization(Model model, GeneralizationAdapter uml_gen) {
+		Generalization onto_gen = (Generalization) model.getElementByName(uml_gen.getPrefixedId());
+		onto_gen.setSuperclass((OntoUMLClass) model.getElementByName(uml_gen.getSuperclass().getPrefixedId()));
+		onto_gen.setSubclass((OntoUMLClass) model.getElementByName(uml_gen.getSubclass().getPrefixedId()));
+		System.out.println(onto_gen);
+		System.out.println(onto_gen.getSuperclass());
+		System.out.println(onto_gen.getSubclass());
 	}
 
-	private static void updateGeneralizationSet(Model model, GeneralizationSetAdapter me) {
-		GeneralizationSet onto_gen_set = (OntoUMLClass) model.getElementByName(uml_class.getPrefixedId());
+	private static void updateGeneralizationSet(Model model, GeneralizationSetAdapter uml_gen_set) {
+		GeneralizationSet onto_gen_set = (GeneralizationSet) model.getElementByName(uml_gen_set.getPrefixedId());
+		for(GeneralizationAdapter uml_gen : uml_gen_set.getGeneralizations()) {
+			onto_gen_set.getGeneralizations().add((Generalization) model.getElementByName(uml_gen.getPrefixedId()));
+		}
+		System.out.println(onto_gen_set);
+		System.out.println(onto_gen_set.getGeneralizations());
 	}
 	
 }

@@ -3,12 +3,23 @@
 package it.unibz.inf.ontouml.xtext.xcore.impl;
 
 import it.unibz.inf.ontouml.xtext.xcore.Generalization;
+import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
+import it.unibz.inf.ontouml.xtext.xcore.Model;
+import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
 
+import java.lang.reflect.InvocationTargetException;
+
+import java.util.function.Consumer;
+
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -148,6 +159,28 @@ public class GeneralizationImpl extends ModelElementImpl implements Generalizati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GeneralizationSet> getGeneralizationSets() {
+		final BasicEList<GeneralizationSet> gen_sets = new BasicEList<GeneralizationSet>();
+		EObject _eContainer = this.eContainer();
+		final Consumer<ModelElement> _function = new Consumer<ModelElement>() {
+			public void accept(final ModelElement it) {
+				if ((it instanceof GeneralizationSet)) {
+					boolean _contains = ((GeneralizationSet)it).getGeneralizations().contains(GeneralizationImpl.this);
+					if (_contains) {
+						gen_sets.add(((GeneralizationSet)it));
+					}
+				}
+			}
+		};
+		((Model) _eContainer).getElements().forEach(_function);
+		return gen_sets;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -211,6 +244,20 @@ public class GeneralizationImpl extends ModelElementImpl implements Generalizati
 				return subclass != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case XcorePackage.GENERALIZATION___GET_GENERALIZATION_SETS:
+				return getGeneralizationSets();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //GeneralizationImpl

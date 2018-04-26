@@ -126,17 +126,7 @@ public enum EndurantType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROLE_MIXIN(10, "RoleMixin", "roleMixin"),
-
-	/**
-	 * The '<em><b>Phase Mixin</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PHASE_MIXIN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PHASE_MIXIN(11, "PhaseMixin", "phaseMixin");
+	ROLE_MIXIN(10, "RoleMixin", "roleMixin");
 
 	/**
 	 * The '<em><b>None</b></em>' literal value.
@@ -304,21 +294,6 @@ public enum EndurantType implements Enumerator {
 	public static final int ROLE_MIXIN_VALUE = 10;
 
 	/**
-	 * The '<em><b>Phase Mixin</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Phase Mixin</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #PHASE_MIXIN
-	 * @model name="PhaseMixin" literal="phaseMixin"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PHASE_MIXIN_VALUE = 11;
-
-	/**
 	 * An array of all the '<em><b>Endurant Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -337,7 +312,6 @@ public enum EndurantType implements Enumerator {
 			CATEGORY,
 			MIXIN,
 			ROLE_MIXIN,
-			PHASE_MIXIN,
 		};
 
 	/**
@@ -405,7 +379,6 @@ public enum EndurantType implements Enumerator {
 			case CATEGORY_VALUE: return CATEGORY;
 			case MIXIN_VALUE: return MIXIN;
 			case ROLE_MIXIN_VALUE: return ROLE_MIXIN;
-			case PHASE_MIXIN_VALUE: return PHASE_MIXIN;
 		}
 		return null;
 	}

@@ -4,12 +4,18 @@ package it.unibz.inf.ontouml.xtext.xcore.impl;
 
 import it.unibz.inf.ontouml.xtext.xcore.Generalization;
 import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
+import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
+import java.util.function.Consumer;
+
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -17,6 +23,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -162,6 +170,31 @@ public class GeneralizationSetImpl extends ModelElementImpl implements Generaliz
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OntoUMLClass getGeneric() {
+		return IterableExtensions.<Generalization>head(this.getGeneralizations()).getSuperclass();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<OntoUMLClass> getSpecifics() {
+		final BasicEList<OntoUMLClass> specifics = new BasicEList<OntoUMLClass>();
+		final Consumer<Generalization> _function = new Consumer<Generalization>() {
+			public void accept(final Generalization it) {
+				specifics.add(it.getSubclass());
+			}
+		};
+		this.getGeneralizations().forEach(_function);
+		return specifics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -235,6 +268,22 @@ public class GeneralizationSetImpl extends ModelElementImpl implements Generaliz
 				return generalizations != null && !generalizations.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case XcorePackage.GENERALIZATION_SET___GET_GENERIC:
+				return getGeneric();
+			case XcorePackage.GENERALIZATION_SET___GET_SPECIFICS:
+				return getSpecifics();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

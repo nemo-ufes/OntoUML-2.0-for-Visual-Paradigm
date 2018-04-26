@@ -11,20 +11,70 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
+import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory
+import it.unibz.inf.ontouml.xtext.utils.ModelUtils
 
 @RunWith(XtextRunner)
 @InjectWith(OntoUMLInjectorProvider)
 class OntoUMLParsingTest {
-	@Inject
-	ParseHelper<Model> parseHelper
+	
+	@Inject extension ParseHelper<Model> parseHelper
+	@Inject extension ValidationTestHelper
+	@Inject extension ModelUtils
 	
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Model { elements { OntoUMLClass Batata } }
+			Model  { Class Batata }
 		''')
 		Assert.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}
+	
+	@Test
+	def void getClassHierarchyTest() {
+		val result = ''' Model { Class Batata }'''.parse
+		result.assertNoErrors
+		val c1 = XcoreFactory.eINSTANCE.createOntoUMLClass;	c1.name="C1"
+		val c2 = XcoreFactory.eINSTANCE.createOntoUMLClass;	c2.name="C2"
+		val c3 = XcoreFactory.eINSTANCE.createOntoUMLClass;	c3.name="C3"
+		val c4 = XcoreFactory.eINSTANCE.createOntoUMLClass;	c4.name="C4"
+		
+		val g1_2 = XcoreFactory.eINSTANCE.createGeneralization
+		val g1_3 = XcoreFactory.eINSTANCE.createGeneralization
+		val g2_4 = XcoreFactory.eINSTANCE.createGeneralization
+		val g3_4 = XcoreFactory.eINSTANCE.createGeneralization
+		
+		c1.generalizationsToSuperclasses.add(g1_2)
+		c2.generalizationsToSubclasses.add(g1_2)
+		g1_2.subclass = c1
+		g1_2.superclass = c2
+		
+		c1.generalizationsToSuperclasses.add(g1_3)
+		c3.generalizationsToSubclasses.add(g1_3)
+		g1_3.subclass = c1
+		g1_3.superclass = c3
+		
+		c2.generalizationsToSuperclasses.add(g2_4)
+		c4.generalizationsToSubclasses.add(g2_4)
+		g2_4.subclass = c2
+		g2_4.superclass = c4
+		
+		c3.generalizationsToSuperclasses.add(g3_4)
+		c4.generalizationsToSubclasses.add(g3_4)
+		g3_4.subclass = c3
+		g3_4.superclass = c4
+		
+//		println(c1.classHierarchy)
+//		println(c2.classHierarchy)
+//		println(c3.classHierarchy)
+//		println(c4.classHierarchy)
+		Assert.assertTrue(c1.classHierarchy.containsAll(newHashSet(c2,c3,c4)))
+		Assert.assertTrue(c2.classHierarchy.containsAll(newHashSet(c4)))
+		Assert.assertTrue(c3.classHierarchy.containsAll(newHashSet(c4)))
+		Assert.assertTrue(c4.classHierarchy.isEmpty)
+	}
+	
 }

@@ -93,4 +93,22 @@ public interface GeneralizationSet extends ModelElement {
 	 */
 	EList<Generalization> getGeneralizations();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>>head(this.getGeneralizations()).getSuperclass();'"
+	 * @generated
+	 */
+	OntoUMLClass getGeneric();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>> specifics = new <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>>();\nfinal <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>> _function = new <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>>()\n{\n\tpublic void accept(final <%it.unibz.inf.ontouml.xtext.xcore.Generalization%> it)\n\t{\n\t\tspecifics.add(it.getSubclass());\n\t}\n};\nthis.getGeneralizations().forEach(_function);\nreturn specifics;'"
+	 * @generated
+	 */
+	EList<OntoUMLClass> getSpecifics();
+
 } // GeneralizationSet

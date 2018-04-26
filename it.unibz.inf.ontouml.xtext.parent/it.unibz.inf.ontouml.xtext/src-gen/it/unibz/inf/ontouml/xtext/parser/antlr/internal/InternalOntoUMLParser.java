@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Model'", "'{'", "','", "'}'", "'Class'", "'supers...'", "'subs...'", "'Generalization'", "'superclass'", "'subclass'", "'disjoint'", "'complete'", "'GeneralizationSet'", "'generalizations'", "'none'", "'kind'", "'relatorKind'", "'modeKind'", "'qualityKind'", "'subkind'", "'role'", "'phase'", "'category'", "'mixin'", "'roleMixin'", "'phaseMixin'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Model'", "'{'", "','", "'}'", "'Class'", "'supers...'", "'subs...'", "'Generalization'", "'superclass'", "'subclass'", "'disjoint'", "'complete'", "'GeneralizationSet'", "'generalizations'", "'none'", "'kind'", "'relatorKind'", "'modeKind'", "'qualityKind'", "'subkind'", "'role'", "'phase'", "'category'", "'mixin'", "'roleMixin'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -38,7 +38,6 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__35=35;
     public static final int T__14=14;
-    public static final int T__36=36;
     public static final int EOF=-1;
     public static final int T__30=30;
     public static final int T__31=31;
@@ -340,6 +339,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             // InternalOntoUML.g:154:2: (this_OntoUMLClass_0= ruleOntoUMLClass | this_Generalization_1= ruleGeneralization | this_GeneralizationSet_2= ruleGeneralizationSet )
             int alt2=3;
             switch ( input.LA(1) ) {
+            case 15:
             case 25:
             case 26:
             case 27:
@@ -351,7 +351,6 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             case 33:
             case 34:
             case 35:
-            case 36:
                 {
                 alt2=1;
                 }
@@ -487,7 +486,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOntoUMLClass"
-    // InternalOntoUML.g:192:1: ruleOntoUMLClass returns [EObject current=null] : ( ( (lv__type_0_0= ruleEndurantType ) ) otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? ) ;
+    // InternalOntoUML.g:192:1: ruleOntoUMLClass returns [EObject current=null] : ( ( (lv__type_0_0= ruleEndurantType ) )? otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? ) ;
     public final EObject ruleOntoUMLClass() throws RecognitionException {
         EObject current = null;
 
@@ -513,40 +512,51 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOntoUML.g:198:2: ( ( ( (lv__type_0_0= ruleEndurantType ) ) otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? ) )
-            // InternalOntoUML.g:199:2: ( ( (lv__type_0_0= ruleEndurantType ) ) otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? )
+            // InternalOntoUML.g:198:2: ( ( ( (lv__type_0_0= ruleEndurantType ) )? otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? ) )
+            // InternalOntoUML.g:199:2: ( ( (lv__type_0_0= ruleEndurantType ) )? otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? )
             {
-            // InternalOntoUML.g:199:2: ( ( (lv__type_0_0= ruleEndurantType ) ) otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? )
-            // InternalOntoUML.g:200:3: ( (lv__type_0_0= ruleEndurantType ) ) otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )?
+            // InternalOntoUML.g:199:2: ( ( (lv__type_0_0= ruleEndurantType ) )? otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )? )
+            // InternalOntoUML.g:200:3: ( (lv__type_0_0= ruleEndurantType ) )? otherlv_1= 'Class' ( (lv_name_2_0= RULE_ID ) ) ( (lv_alias_3_0= RULE_STRING ) )? (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )?
             {
-            // InternalOntoUML.g:200:3: ( (lv__type_0_0= ruleEndurantType ) )
-            // InternalOntoUML.g:201:4: (lv__type_0_0= ruleEndurantType )
-            {
-            // InternalOntoUML.g:201:4: (lv__type_0_0= ruleEndurantType )
-            // InternalOntoUML.g:202:5: lv__type_0_0= ruleEndurantType
-            {
+            // InternalOntoUML.g:200:3: ( (lv__type_0_0= ruleEndurantType ) )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            					newCompositeNode(grammarAccess.getOntoUMLClassAccess().get_typeEndurantTypeEnumRuleCall_0_0());
-            				
-            pushFollow(FOLLOW_6);
-            lv__type_0_0=ruleEndurantType();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getOntoUMLClassRule());
-            					}
-            					set(
-            						current,
-            						"_type",
-            						lv__type_0_0,
-            						"it.unibz.inf.ontouml.xtext.OntoUML.EndurantType");
-            					afterParserOrEnumRuleCall();
-            				
-
+            if ( ((LA3_0>=25 && LA3_0<=35)) ) {
+                alt3=1;
             }
+            switch (alt3) {
+                case 1 :
+                    // InternalOntoUML.g:201:4: (lv__type_0_0= ruleEndurantType )
+                    {
+                    // InternalOntoUML.g:201:4: (lv__type_0_0= ruleEndurantType )
+                    // InternalOntoUML.g:202:5: lv__type_0_0= ruleEndurantType
+                    {
 
+                    					newCompositeNode(grammarAccess.getOntoUMLClassAccess().get_typeEndurantTypeEnumRuleCall_0_0());
+                    				
+                    pushFollow(FOLLOW_6);
+                    lv__type_0_0=ruleEndurantType();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getOntoUMLClassRule());
+                    					}
+                    					set(
+                    						current,
+                    						"_type",
+                    						lv__type_0_0,
+                    						"it.unibz.inf.ontouml.xtext.OntoUML.EndurantType");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -581,13 +591,13 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             }
 
             // InternalOntoUML.g:241:3: ( (lv_alias_3_0= RULE_STRING ) )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA3_0==RULE_STRING) ) {
-                alt3=1;
+            if ( (LA4_0==RULE_STRING) ) {
+                alt4=1;
             }
-            switch (alt3) {
+            switch (alt4) {
                 case 1 :
                     // InternalOntoUML.g:242:4: (lv_alias_3_0= RULE_STRING )
                     {
@@ -618,13 +628,13 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             }
 
             // InternalOntoUML.g:259:3: (otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==16) ) {
-                alt5=1;
+            if ( (LA6_0==16) ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
                     // InternalOntoUML.g:260:4: otherlv_4= 'supers...' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}'
                     {
@@ -658,17 +668,17 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalOntoUML.g:281:4: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
-                    loop4:
+                    loop5:
                     do {
-                        int alt4=2;
-                        int LA4_0 = input.LA(1);
+                        int alt5=2;
+                        int LA5_0 = input.LA(1);
 
-                        if ( (LA4_0==13) ) {
-                            alt4=1;
+                        if ( (LA5_0==13) ) {
+                            alt5=1;
                         }
 
 
-                        switch (alt4) {
+                        switch (alt5) {
                     	case 1 :
                     	    // InternalOntoUML.g:282:5: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
                     	    {
@@ -702,7 +712,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop4;
+                    	    break loop5;
                         }
                     } while (true);
 
@@ -717,13 +727,13 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             }
 
             // InternalOntoUML.g:305:3: (otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}' )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==17) ) {
-                alt7=1;
+            if ( (LA8_0==17) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
                     // InternalOntoUML.g:306:4: otherlv_10= 'subs...' otherlv_11= '{' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* otherlv_15= '}'
                     {
@@ -757,17 +767,17 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalOntoUML.g:327:4: (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )*
-                    loop6:
+                    loop7:
                     do {
-                        int alt6=2;
-                        int LA6_0 = input.LA(1);
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA6_0==13) ) {
-                            alt6=1;
+                        if ( (LA7_0==13) ) {
+                            alt7=1;
                         }
 
 
-                        switch (alt6) {
+                        switch (alt7) {
                     	case 1 :
                     	    // InternalOntoUML.g:328:5: otherlv_13= ',' ( (otherlv_14= RULE_ID ) )
                     	    {
@@ -801,7 +811,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop6;
+                    	    break loop7;
                         }
                     } while (true);
 
@@ -927,13 +937,13 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             }
 
             // InternalOntoUML.g:392:3: ( (lv_alias_2_0= RULE_STRING ) )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_STRING) ) {
-                alt8=1;
+            if ( (LA9_0==RULE_STRING) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
                     // InternalOntoUML.g:393:4: (lv_alias_2_0= RULE_STRING )
                     {
@@ -1072,7 +1082,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGeneralizationSet"
-    // InternalOntoUML.g:455:1: ruleGeneralizationSet returns [EObject current=null] : ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* ) ;
+    // InternalOntoUML.g:455:1: ruleGeneralizationSet returns [EObject current=null] : ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' otherlv_6= '{' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= '}' ) ;
     public final EObject ruleGeneralizationSet() throws RecognitionException {
         EObject current = null;
 
@@ -1085,16 +1095,18 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
         Token otherlv_7=null;
         Token otherlv_8=null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
 
 
         	enterRule();
 
         try {
-            // InternalOntoUML.g:461:2: ( ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* ) )
-            // InternalOntoUML.g:462:2: ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* )
+            // InternalOntoUML.g:461:2: ( ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' otherlv_6= '{' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= '}' ) )
+            // InternalOntoUML.g:462:2: ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' otherlv_6= '{' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= '}' )
             {
-            // InternalOntoUML.g:462:2: ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* )
-            // InternalOntoUML.g:463:3: ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
+            // InternalOntoUML.g:462:2: ( ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' otherlv_6= '{' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= '}' )
+            // InternalOntoUML.g:463:3: ( (lv_isDisjoint_0_0= 'disjoint' ) ) ( (lv_isComplete_1_0= 'complete' ) ) otherlv_2= 'GeneralizationSet' ( (lv_name_3_0= RULE_ID ) ) ( (lv_alias_4_0= RULE_STRING ) )? otherlv_5= 'generalizations' otherlv_6= '{' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= '}'
             {
             // InternalOntoUML.g:463:3: ( (lv_isDisjoint_0_0= 'disjoint' ) )
             // InternalOntoUML.g:464:4: (lv_isDisjoint_0_0= 'disjoint' )
@@ -1171,13 +1183,13 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             }
 
             // InternalOntoUML.g:513:3: ( (lv_alias_4_0= RULE_STRING ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_STRING) ) {
-                alt9=1;
+            if ( (LA10_0==RULE_STRING) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
                     // InternalOntoUML.g:514:4: (lv_alias_4_0= RULE_STRING )
                     {
@@ -1207,24 +1219,28 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,24,FOLLOW_7); 
+            otherlv_5=(Token)match(input,24,FOLLOW_3); 
 
             			newLeafNode(otherlv_5, grammarAccess.getGeneralizationSetAccess().getGeneralizationsKeyword_5());
             		
-            // InternalOntoUML.g:535:3: ( (otherlv_6= RULE_ID ) )
-            // InternalOntoUML.g:536:4: (otherlv_6= RULE_ID )
+            otherlv_6=(Token)match(input,12,FOLLOW_7); 
+
+            			newLeafNode(otherlv_6, grammarAccess.getGeneralizationSetAccess().getLeftCurlyBracketKeyword_6());
+            		
+            // InternalOntoUML.g:539:3: ( (otherlv_7= RULE_ID ) )
+            // InternalOntoUML.g:540:4: (otherlv_7= RULE_ID )
             {
-            // InternalOntoUML.g:536:4: (otherlv_6= RULE_ID )
-            // InternalOntoUML.g:537:5: otherlv_6= RULE_ID
+            // InternalOntoUML.g:540:4: (otherlv_7= RULE_ID )
+            // InternalOntoUML.g:541:5: otherlv_7= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getGeneralizationSetRule());
             					}
             				
-            otherlv_6=(Token)match(input,RULE_ID,FOLLOW_18); 
+            otherlv_7=(Token)match(input,RULE_ID,FOLLOW_5); 
 
-            					newLeafNode(otherlv_6, grammarAccess.getGeneralizationSetAccess().getGeneralizationsGeneralizationCrossReference_6_0());
+            					newLeafNode(otherlv_7, grammarAccess.getGeneralizationSetAccess().getGeneralizationsGeneralizationCrossReference_7_0());
             				
 
             }
@@ -1232,45 +1248,39 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalOntoUML.g:548:3: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
-            loop10:
+            // InternalOntoUML.g:552:3: (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==13) ) {
-                    int LA10_1 = input.LA(2);
-
-                    if ( (LA10_1==RULE_ID) ) {
-                        alt10=1;
-                    }
-
-
+                if ( (LA11_0==13) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalOntoUML.g:549:4: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
+            	    // InternalOntoUML.g:553:4: otherlv_8= ',' ( (otherlv_9= RULE_ID ) )
             	    {
-            	    otherlv_7=(Token)match(input,13,FOLLOW_7); 
+            	    otherlv_8=(Token)match(input,13,FOLLOW_7); 
 
-            	    				newLeafNode(otherlv_7, grammarAccess.getGeneralizationSetAccess().getCommaKeyword_7_0());
+            	    				newLeafNode(otherlv_8, grammarAccess.getGeneralizationSetAccess().getCommaKeyword_8_0());
             	    			
-            	    // InternalOntoUML.g:553:4: ( (otherlv_8= RULE_ID ) )
-            	    // InternalOntoUML.g:554:5: (otherlv_8= RULE_ID )
+            	    // InternalOntoUML.g:557:4: ( (otherlv_9= RULE_ID ) )
+            	    // InternalOntoUML.g:558:5: (otherlv_9= RULE_ID )
             	    {
-            	    // InternalOntoUML.g:554:5: (otherlv_8= RULE_ID )
-            	    // InternalOntoUML.g:555:6: otherlv_8= RULE_ID
+            	    // InternalOntoUML.g:558:5: (otherlv_9= RULE_ID )
+            	    // InternalOntoUML.g:559:6: otherlv_9= RULE_ID
             	    {
 
             	    						if (current==null) {
             	    							current = createModelElement(grammarAccess.getGeneralizationSetRule());
             	    						}
             	    					
-            	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_18); 
+            	    otherlv_9=(Token)match(input,RULE_ID,FOLLOW_5); 
 
-            	    						newLeafNode(otherlv_8, grammarAccess.getGeneralizationSetAccess().getGeneralizationsGeneralizationCrossReference_7_1_0());
+            	    						newLeafNode(otherlv_9, grammarAccess.getGeneralizationSetAccess().getGeneralizationsGeneralizationCrossReference_8_1_0());
             	    					
 
             	    }
@@ -1283,10 +1293,14 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
+            otherlv_10=(Token)match(input,14,FOLLOW_2); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getGeneralizationSetAccess().getRightCurlyBracketKeyword_9());
+            		
 
             }
 
@@ -1310,7 +1324,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEndurantType"
-    // InternalOntoUML.g:571:1: ruleEndurantType returns [Enumerator current=null] : ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) | (enumLiteral_11= 'phaseMixin' ) ) ;
+    // InternalOntoUML.g:579:1: ruleEndurantType returns [Enumerator current=null] : ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) ) ;
     public final Enumerator ruleEndurantType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1325,91 +1339,85 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
         Token enumLiteral_8=null;
         Token enumLiteral_9=null;
         Token enumLiteral_10=null;
-        Token enumLiteral_11=null;
 
 
         	enterRule();
 
         try {
-            // InternalOntoUML.g:577:2: ( ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) | (enumLiteral_11= 'phaseMixin' ) ) )
-            // InternalOntoUML.g:578:2: ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) | (enumLiteral_11= 'phaseMixin' ) )
+            // InternalOntoUML.g:585:2: ( ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) ) )
+            // InternalOntoUML.g:586:2: ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) )
             {
-            // InternalOntoUML.g:578:2: ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) | (enumLiteral_11= 'phaseMixin' ) )
-            int alt11=12;
+            // InternalOntoUML.g:586:2: ( (enumLiteral_0= 'none' ) | (enumLiteral_1= 'kind' ) | (enumLiteral_2= 'relatorKind' ) | (enumLiteral_3= 'modeKind' ) | (enumLiteral_4= 'qualityKind' ) | (enumLiteral_5= 'subkind' ) | (enumLiteral_6= 'role' ) | (enumLiteral_7= 'phase' ) | (enumLiteral_8= 'category' ) | (enumLiteral_9= 'mixin' ) | (enumLiteral_10= 'roleMixin' ) )
+            int alt12=11;
             switch ( input.LA(1) ) {
             case 25:
                 {
-                alt11=1;
+                alt12=1;
                 }
                 break;
             case 26:
                 {
-                alt11=2;
+                alt12=2;
                 }
                 break;
             case 27:
                 {
-                alt11=3;
+                alt12=3;
                 }
                 break;
             case 28:
                 {
-                alt11=4;
+                alt12=4;
                 }
                 break;
             case 29:
                 {
-                alt11=5;
+                alt12=5;
                 }
                 break;
             case 30:
                 {
-                alt11=6;
+                alt12=6;
                 }
                 break;
             case 31:
                 {
-                alt11=7;
+                alt12=7;
                 }
                 break;
             case 32:
                 {
-                alt11=8;
+                alt12=8;
                 }
                 break;
             case 33:
                 {
-                alt11=9;
+                alt12=9;
                 }
                 break;
             case 34:
                 {
-                alt11=10;
+                alt12=10;
                 }
                 break;
             case 35:
                 {
-                alt11=11;
-                }
-                break;
-            case 36:
-                {
-                alt11=12;
+                alt12=11;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalOntoUML.g:579:3: (enumLiteral_0= 'none' )
+                    // InternalOntoUML.g:587:3: (enumLiteral_0= 'none' )
                     {
-                    // InternalOntoUML.g:579:3: (enumLiteral_0= 'none' )
-                    // InternalOntoUML.g:580:4: enumLiteral_0= 'none'
+                    // InternalOntoUML.g:587:3: (enumLiteral_0= 'none' )
+                    // InternalOntoUML.g:588:4: enumLiteral_0= 'none'
                     {
                     enumLiteral_0=(Token)match(input,25,FOLLOW_2); 
 
@@ -1423,10 +1431,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOntoUML.g:587:3: (enumLiteral_1= 'kind' )
+                    // InternalOntoUML.g:595:3: (enumLiteral_1= 'kind' )
                     {
-                    // InternalOntoUML.g:587:3: (enumLiteral_1= 'kind' )
-                    // InternalOntoUML.g:588:4: enumLiteral_1= 'kind'
+                    // InternalOntoUML.g:595:3: (enumLiteral_1= 'kind' )
+                    // InternalOntoUML.g:596:4: enumLiteral_1= 'kind'
                     {
                     enumLiteral_1=(Token)match(input,26,FOLLOW_2); 
 
@@ -1440,10 +1448,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOntoUML.g:595:3: (enumLiteral_2= 'relatorKind' )
+                    // InternalOntoUML.g:603:3: (enumLiteral_2= 'relatorKind' )
                     {
-                    // InternalOntoUML.g:595:3: (enumLiteral_2= 'relatorKind' )
-                    // InternalOntoUML.g:596:4: enumLiteral_2= 'relatorKind'
+                    // InternalOntoUML.g:603:3: (enumLiteral_2= 'relatorKind' )
+                    // InternalOntoUML.g:604:4: enumLiteral_2= 'relatorKind'
                     {
                     enumLiteral_2=(Token)match(input,27,FOLLOW_2); 
 
@@ -1457,10 +1465,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOntoUML.g:603:3: (enumLiteral_3= 'modeKind' )
+                    // InternalOntoUML.g:611:3: (enumLiteral_3= 'modeKind' )
                     {
-                    // InternalOntoUML.g:603:3: (enumLiteral_3= 'modeKind' )
-                    // InternalOntoUML.g:604:4: enumLiteral_3= 'modeKind'
+                    // InternalOntoUML.g:611:3: (enumLiteral_3= 'modeKind' )
+                    // InternalOntoUML.g:612:4: enumLiteral_3= 'modeKind'
                     {
                     enumLiteral_3=(Token)match(input,28,FOLLOW_2); 
 
@@ -1474,10 +1482,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalOntoUML.g:611:3: (enumLiteral_4= 'qualityKind' )
+                    // InternalOntoUML.g:619:3: (enumLiteral_4= 'qualityKind' )
                     {
-                    // InternalOntoUML.g:611:3: (enumLiteral_4= 'qualityKind' )
-                    // InternalOntoUML.g:612:4: enumLiteral_4= 'qualityKind'
+                    // InternalOntoUML.g:619:3: (enumLiteral_4= 'qualityKind' )
+                    // InternalOntoUML.g:620:4: enumLiteral_4= 'qualityKind'
                     {
                     enumLiteral_4=(Token)match(input,29,FOLLOW_2); 
 
@@ -1491,10 +1499,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalOntoUML.g:619:3: (enumLiteral_5= 'subkind' )
+                    // InternalOntoUML.g:627:3: (enumLiteral_5= 'subkind' )
                     {
-                    // InternalOntoUML.g:619:3: (enumLiteral_5= 'subkind' )
-                    // InternalOntoUML.g:620:4: enumLiteral_5= 'subkind'
+                    // InternalOntoUML.g:627:3: (enumLiteral_5= 'subkind' )
+                    // InternalOntoUML.g:628:4: enumLiteral_5= 'subkind'
                     {
                     enumLiteral_5=(Token)match(input,30,FOLLOW_2); 
 
@@ -1508,10 +1516,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalOntoUML.g:627:3: (enumLiteral_6= 'role' )
+                    // InternalOntoUML.g:635:3: (enumLiteral_6= 'role' )
                     {
-                    // InternalOntoUML.g:627:3: (enumLiteral_6= 'role' )
-                    // InternalOntoUML.g:628:4: enumLiteral_6= 'role'
+                    // InternalOntoUML.g:635:3: (enumLiteral_6= 'role' )
+                    // InternalOntoUML.g:636:4: enumLiteral_6= 'role'
                     {
                     enumLiteral_6=(Token)match(input,31,FOLLOW_2); 
 
@@ -1525,10 +1533,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalOntoUML.g:635:3: (enumLiteral_7= 'phase' )
+                    // InternalOntoUML.g:643:3: (enumLiteral_7= 'phase' )
                     {
-                    // InternalOntoUML.g:635:3: (enumLiteral_7= 'phase' )
-                    // InternalOntoUML.g:636:4: enumLiteral_7= 'phase'
+                    // InternalOntoUML.g:643:3: (enumLiteral_7= 'phase' )
+                    // InternalOntoUML.g:644:4: enumLiteral_7= 'phase'
                     {
                     enumLiteral_7=(Token)match(input,32,FOLLOW_2); 
 
@@ -1542,10 +1550,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalOntoUML.g:643:3: (enumLiteral_8= 'category' )
+                    // InternalOntoUML.g:651:3: (enumLiteral_8= 'category' )
                     {
-                    // InternalOntoUML.g:643:3: (enumLiteral_8= 'category' )
-                    // InternalOntoUML.g:644:4: enumLiteral_8= 'category'
+                    // InternalOntoUML.g:651:3: (enumLiteral_8= 'category' )
+                    // InternalOntoUML.g:652:4: enumLiteral_8= 'category'
                     {
                     enumLiteral_8=(Token)match(input,33,FOLLOW_2); 
 
@@ -1559,10 +1567,10 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalOntoUML.g:651:3: (enumLiteral_9= 'mixin' )
+                    // InternalOntoUML.g:659:3: (enumLiteral_9= 'mixin' )
                     {
-                    // InternalOntoUML.g:651:3: (enumLiteral_9= 'mixin' )
-                    // InternalOntoUML.g:652:4: enumLiteral_9= 'mixin'
+                    // InternalOntoUML.g:659:3: (enumLiteral_9= 'mixin' )
+                    // InternalOntoUML.g:660:4: enumLiteral_9= 'mixin'
                     {
                     enumLiteral_9=(Token)match(input,34,FOLLOW_2); 
 
@@ -1576,32 +1584,15 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalOntoUML.g:659:3: (enumLiteral_10= 'roleMixin' )
+                    // InternalOntoUML.g:667:3: (enumLiteral_10= 'roleMixin' )
                     {
-                    // InternalOntoUML.g:659:3: (enumLiteral_10= 'roleMixin' )
-                    // InternalOntoUML.g:660:4: enumLiteral_10= 'roleMixin'
+                    // InternalOntoUML.g:667:3: (enumLiteral_10= 'roleMixin' )
+                    // InternalOntoUML.g:668:4: enumLiteral_10= 'roleMixin'
                     {
                     enumLiteral_10=(Token)match(input,35,FOLLOW_2); 
 
                     				current = grammarAccess.getEndurantTypeAccess().getRoleMixinEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_10, grammarAccess.getEndurantTypeAccess().getRoleMixinEnumLiteralDeclaration_10());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 12 :
-                    // InternalOntoUML.g:667:3: (enumLiteral_11= 'phaseMixin' )
-                    {
-                    // InternalOntoUML.g:667:3: (enumLiteral_11= 'phaseMixin' )
-                    // InternalOntoUML.g:668:4: enumLiteral_11= 'phaseMixin'
-                    {
-                    enumLiteral_11=(Token)match(input,36,FOLLOW_2); 
-
-                    				current = grammarAccess.getEndurantTypeAccess().getPhaseMixinEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_11, grammarAccess.getEndurantTypeAccess().getPhaseMixinEnumLiteralDeclaration_11());
                     			
 
                     }
@@ -1638,7 +1629,7 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000001FFE240000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000FFE248000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000006000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
@@ -1652,6 +1643,5 @@ public class InternalOntoUMLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000020L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000002002L});
 
 }

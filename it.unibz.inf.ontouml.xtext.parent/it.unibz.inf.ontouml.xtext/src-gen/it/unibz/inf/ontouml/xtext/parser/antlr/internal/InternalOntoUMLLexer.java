@@ -26,7 +26,6 @@ public class InternalOntoUMLLexer extends Lexer {
     public static final int T__13=13;
     public static final int T__35=35;
     public static final int T__14=14;
-    public static final int T__36=36;
     public static final int EOF=-1;
     public static final int T__30=30;
     public static final int T__31=31;
@@ -582,27 +581,6 @@ public class InternalOntoUMLLexer extends Lexer {
     }
     // $ANTLR end "T__35"
 
-    // $ANTLR start "T__36"
-    public final void mT__36() throws RecognitionException {
-        try {
-            int _type = T__36;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUML.g:36:7: ( 'phaseMixin' )
-            // InternalOntoUML.g:36:9: 'phaseMixin'
-            {
-            match("phaseMixin"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__36"
-
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
@@ -1102,8 +1080,8 @@ public class InternalOntoUMLLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalOntoUML.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=33;
+        // InternalOntoUML.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=32;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1282,56 +1260,49 @@ public class InternalOntoUMLLexer extends Lexer {
                 }
                 break;
             case 26 :
-                // InternalOntoUML.g:1:160: T__36
-                {
-                mT__36(); 
-
-                }
-                break;
-            case 27 :
-                // InternalOntoUML.g:1:166: RULE_ID
+                // InternalOntoUML.g:1:160: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 28 :
-                // InternalOntoUML.g:1:174: RULE_INT
+            case 27 :
+                // InternalOntoUML.g:1:168: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 29 :
-                // InternalOntoUML.g:1:183: RULE_STRING
+            case 28 :
+                // InternalOntoUML.g:1:177: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 30 :
-                // InternalOntoUML.g:1:195: RULE_ML_COMMENT
+            case 29 :
+                // InternalOntoUML.g:1:189: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 31 :
-                // InternalOntoUML.g:1:211: RULE_SL_COMMENT
+            case 30 :
+                // InternalOntoUML.g:1:205: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 32 :
-                // InternalOntoUML.g:1:227: RULE_WS
+            case 31 :
+                // InternalOntoUML.g:1:221: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 33 :
-                // InternalOntoUML.g:1:235: RULE_ANY_OTHER
+            case 32 :
+                // InternalOntoUML.g:1:229: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1345,17 +1316,17 @@ public class InternalOntoUMLLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\32\3\uffff\14\32\1\30\2\uffff\3\30\2\uffff\1\32\4\uffff\17\32\5\uffff\34\32\1\141\1\142\1\32\1\145\4\32\1\152\1\153\1\32\1\uffff\7\32\2\uffff\2\32\1\uffff\1\32\1\170\1\32\1\173\2\uffff\14\32\1\uffff\2\32\2\uffff\2\32\1\u008c\13\32\1\u0098\1\uffff\1\32\1\u009a\1\u009b\1\u009c\3\32\1\u00a0\3\32\1\uffff\1\32\3\uffff\2\32\1\u00a7\1\uffff\2\32\1\u00aa\3\32\1\uffff\1\32\1\u00af\1\uffff\2\32\1\u00b2\1\u00b3\1\uffff\2\32\2\uffff\2\32\1\u00b9\2\32\1\uffff\1\u00bc\1\32\1\uffff\1\u00be\1\uffff";
+        "\1\uffff\1\32\3\uffff\14\32\1\30\2\uffff\3\30\2\uffff\1\32\4\uffff\17\32\5\uffff\34\32\1\141\1\142\1\32\1\145\4\32\1\152\1\153\1\32\1\uffff\7\32\2\uffff\2\32\1\uffff\1\32\1\170\1\32\1\172\2\uffff\14\32\1\uffff\1\32\2\uffff\2\32\1\u008a\12\32\1\u0095\1\uffff\1\32\1\u0097\1\u0098\1\u0099\3\32\1\u009d\2\32\1\uffff\1\32\3\uffff\2\32\1\u00a3\1\uffff\1\32\1\u00a5\3\32\1\uffff\1\32\1\uffff\2\32\1\u00ac\1\u00ad\2\32\2\uffff\2\32\1\u00b3\2\32\1\uffff\1\u00b6\1\32\1\uffff\1\u00b8\1\uffff";
     static final String DFA12_eofS =
-        "\u00bf\uffff";
+        "\u00b9\uffff";
     static final String DFA12_minS =
-        "\1\0\1\157\3\uffff\1\154\1\165\1\145\1\151\1\141\1\145\1\157\1\151\1\145\1\151\1\165\1\150\1\101\2\uffff\2\0\1\52\2\uffff\1\144\4\uffff\1\141\1\142\1\156\1\163\1\155\1\164\3\156\2\154\1\144\1\170\2\141\5\uffff\1\145\1\163\1\145\1\143\1\145\1\152\1\160\3\145\1\144\1\141\2\145\1\151\1\154\1\163\1\154\1\163\1\162\1\56\1\154\1\151\1\162\1\157\1\154\1\147\1\162\2\60\1\164\1\60\1\113\1\156\1\151\1\145\2\60\1\143\1\uffff\1\141\1\156\1\141\1\151\1\145\1\157\1\141\2\uffff\1\157\1\151\1\uffff\1\151\1\60\1\164\1\60\2\uffff\1\56\1\154\1\163\1\144\1\154\1\156\1\164\1\162\1\154\1\162\1\170\1\156\1\uffff\1\171\1\151\2\uffff\1\141\1\163\1\60\1\151\1\164\1\145\1\171\1\151\1\113\1\151\1\144\1\113\1\170\1\163\1\60\1\uffff\1\172\3\60\1\172\1\151\1\156\1\60\2\151\1\163\1\uffff\1\141\3\uffff\1\141\1\156\1\60\1\uffff\2\156\1\60\2\164\1\144\1\uffff\1\144\1\60\1\uffff\2\151\2\60\1\uffff\2\157\2\uffff\2\156\1\60\1\163\1\145\1\uffff\1\60\1\164\1\uffff\1\60\1\uffff";
+        "\1\0\1\157\3\uffff\1\154\1\165\1\145\1\151\1\141\1\145\1\157\1\151\1\145\1\151\1\165\1\150\1\101\2\uffff\2\0\1\52\2\uffff\1\144\4\uffff\1\141\1\142\1\156\1\163\1\155\1\164\3\156\2\154\1\144\1\170\2\141\5\uffff\1\145\1\163\1\145\1\143\1\145\1\152\1\160\3\145\1\144\1\141\2\145\1\151\1\154\1\163\1\154\1\163\1\162\1\56\1\154\1\151\1\162\1\157\1\154\1\147\1\162\2\60\1\164\1\60\1\113\1\156\1\151\1\145\2\60\1\143\1\uffff\1\141\1\156\1\141\1\151\1\145\1\157\1\141\2\uffff\1\157\1\151\1\uffff\1\151\1\60\1\164\1\60\2\uffff\1\56\1\154\1\163\1\144\1\154\1\156\1\164\1\162\1\154\1\162\1\170\1\156\1\uffff\1\171\2\uffff\1\141\1\163\1\60\1\151\1\164\1\145\1\171\1\151\1\113\1\151\1\144\1\113\1\163\1\60\1\uffff\1\172\3\60\1\172\1\151\1\156\1\60\1\151\1\163\1\uffff\1\141\3\uffff\1\141\1\156\1\60\1\uffff\1\156\1\60\2\164\1\144\1\uffff\1\144\1\uffff\2\151\2\60\2\157\2\uffff\2\156\1\60\1\163\1\145\1\uffff\1\60\1\164\1\uffff\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\157\3\uffff\1\154\1\165\1\145\1\151\1\157\1\145\1\157\1\151\2\157\1\165\1\150\1\172\2\uffff\2\uffff\1\57\2\uffff\1\144\4\uffff\1\141\1\160\1\156\1\163\1\155\1\164\3\156\2\154\1\144\1\170\2\141\5\uffff\1\145\1\163\1\145\1\163\1\145\1\152\1\160\3\145\1\144\1\141\2\145\1\151\1\154\1\163\1\154\1\163\1\162\1\56\1\154\1\151\1\162\1\157\1\154\1\147\1\162\2\172\1\164\1\172\1\113\1\156\1\151\1\145\2\172\1\163\1\uffff\1\141\1\156\1\141\1\151\1\145\1\157\1\141\2\uffff\1\157\1\151\1\uffff\1\151\1\172\1\164\1\172\2\uffff\1\56\1\154\1\163\1\144\1\154\1\156\1\164\1\162\1\154\1\162\1\170\1\156\1\uffff\1\171\1\151\2\uffff\1\141\1\163\1\172\1\151\1\164\1\145\1\171\1\151\1\113\1\151\1\144\1\113\1\170\1\163\1\172\1\uffff\5\172\1\151\1\156\1\172\2\151\1\163\1\uffff\1\141\3\uffff\1\141\1\156\1\172\1\uffff\2\156\1\172\2\164\1\144\1\uffff\1\144\1\172\1\uffff\2\151\2\172\1\uffff\2\157\2\uffff\2\156\1\172\1\163\1\145\1\uffff\1\172\1\164\1\uffff\1\172\1\uffff";
+        "\1\uffff\1\157\3\uffff\1\154\1\165\1\145\1\151\1\157\1\145\1\157\1\151\2\157\1\165\1\150\1\172\2\uffff\2\uffff\1\57\2\uffff\1\144\4\uffff\1\141\1\160\1\156\1\163\1\155\1\164\3\156\2\154\1\144\1\170\2\141\5\uffff\1\145\1\163\1\145\1\163\1\145\1\152\1\160\3\145\1\144\1\141\2\145\1\151\1\154\1\163\1\154\1\163\1\162\1\56\1\154\1\151\1\162\1\157\1\154\1\147\1\162\2\172\1\164\1\172\1\113\1\156\1\151\1\145\2\172\1\163\1\uffff\1\141\1\156\1\141\1\151\1\145\1\157\1\141\2\uffff\1\157\1\151\1\uffff\1\151\1\172\1\164\1\172\2\uffff\1\56\1\154\1\163\1\144\1\154\1\156\1\164\1\162\1\154\1\162\1\170\1\156\1\uffff\1\171\2\uffff\1\141\1\163\1\172\1\151\1\164\1\145\1\171\1\151\1\113\1\151\1\144\1\113\1\163\1\172\1\uffff\5\172\1\151\1\156\1\172\1\151\1\163\1\uffff\1\141\3\uffff\1\141\1\156\1\172\1\uffff\1\156\1\172\2\164\1\144\1\uffff\1\144\1\uffff\2\151\2\172\2\157\2\uffff\2\156\1\172\1\163\1\145\1\uffff\1\172\1\164\1\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\1\4\15\uffff\1\33\1\34\3\uffff\1\40\1\41\1\uffff\1\33\1\2\1\3\1\4\17\uffff\1\34\1\35\1\36\1\37\1\40\47\uffff\1\7\7\uffff\1\17\1\20\2\uffff\1\25\4\uffff\1\1\1\5\14\uffff\1\30\2\uffff\1\26\1\6\17\uffff\1\24\13\uffff\1\12\1\uffff\1\13\1\14\1\27\3\uffff\1\22\6\uffff\1\31\2\uffff\1\11\4\uffff\1\32\2\uffff\1\21\1\23\5\uffff\1\10\2\uffff\1\16\1\uffff\1\15";
+        "\2\uffff\1\2\1\3\1\4\15\uffff\1\32\1\33\3\uffff\1\37\1\40\1\uffff\1\32\1\2\1\3\1\4\17\uffff\1\33\1\34\1\35\1\36\1\37\47\uffff\1\7\7\uffff\1\17\1\20\2\uffff\1\25\4\uffff\1\1\1\5\14\uffff\1\30\1\uffff\1\26\1\6\16\uffff\1\24\12\uffff\1\12\1\uffff\1\13\1\14\1\27\3\uffff\1\22\5\uffff\1\31\1\uffff\1\11\6\uffff\1\21\1\23\5\uffff\1\10\2\uffff\1\16\1\uffff\1\15";
     static final String DFA12_specialS =
-        "\1\1\23\uffff\1\0\1\2\u00a9\uffff}>";
+        "\1\0\23\uffff\1\2\1\1\u00a3\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\30\2\27\2\30\1\27\22\30\1\27\1\30\1\24\4\30\1\25\4\30\1\3\2\30\1\26\12\23\7\30\2\22\1\5\3\22\1\7\5\22\1\1\15\22\3\30\1\21\1\22\1\30\2\22\1\11\1\10\2\22\1\12\3\22\1\14\1\22\1\16\1\13\1\22\1\20\1\17\1\15\1\6\7\22\1\2\1\30\1\4\uff82\30",
             "\1\31",
@@ -1462,9 +1433,10 @@ public class InternalOntoUMLLexer extends Lexer {
             "\1\167",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "\1\171",
-            "\12\32\7\uffff\14\32\1\172\15\32\4\uffff\1\32\1\uffff\32\32",
+            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "",
             "",
+            "\1\173",
             "\1\174",
             "\1\175",
             "\1\176",
@@ -1476,15 +1448,15 @@ public class InternalOntoUMLLexer extends Lexer {
             "\1\u0084",
             "\1\u0085",
             "\1\u0086",
+            "",
             "\1\u0087",
+            "",
             "",
             "\1\u0088",
             "\1\u0089",
-            "",
-            "",
-            "\1\u008a",
-            "\1\u008b",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
+            "\1\u008b",
+            "\1\u008c",
             "\1\u008d",
             "\1\u008e",
             "\1\u008f",
@@ -1493,58 +1465,51 @@ public class InternalOntoUMLLexer extends Lexer {
             "\1\u0092",
             "\1\u0093",
             "\1\u0094",
-            "\1\u0095",
-            "\1\u0096",
-            "\1\u0097",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "",
-            "\1\u0099",
+            "\1\u0096",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
-            "\1\u009d",
+            "\1\u009a",
+            "\1\u009b",
+            "\1\u009c",
+            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "\1\u009e",
             "\1\u009f",
-            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
+            "",
+            "\1\u00a0",
+            "",
+            "",
+            "",
             "\1\u00a1",
             "\1\u00a2",
-            "\1\u00a3",
+            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "",
             "\1\u00a4",
-            "",
-            "",
-            "",
-            "\1\u00a5",
+            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             "\1\u00a6",
-            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
-            "",
+            "\1\u00a7",
             "\1\u00a8",
-            "\1\u00a9",
-            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
-            "\1\u00ab",
-            "\1\u00ac",
-            "\1\u00ad",
             "",
-            "\1\u00ae",
+            "\1\u00a9",
+            "",
+            "\1\u00aa",
+            "\1\u00ab",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
+            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
+            "\1\u00ae",
+            "\1\u00af",
+            "",
             "",
             "\1\u00b0",
             "\1\u00b1",
-            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
-            "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
-            "",
+            "\12\32\7\uffff\22\32\1\u00b2\7\32\4\uffff\1\32\1\uffff\32\32",
             "\1\u00b4",
             "\1\u00b5",
             "",
-            "",
-            "\1\u00b6",
-            "\1\u00b7",
-            "\12\32\7\uffff\22\32\1\u00b8\7\32\4\uffff\1\32\1\uffff\32\32",
-            "\1\u00ba",
-            "\1\u00bb",
-            "",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
-            "\1\u00bd",
+            "\1\u00b7",
             "",
             "\12\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32",
             ""
@@ -1580,23 +1545,13 @@ public class InternalOntoUMLLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_20 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_20>='\u0000' && LA12_20<='\uFFFF')) ) {s = 46;}
-
-                        else s = 24;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1650,11 +1605,21 @@ public class InternalOntoUMLLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
+                    case 1 : 
                         int LA12_21 = input.LA(1);
 
                         s = -1;
                         if ( ((LA12_21>='\u0000' && LA12_21<='\uFFFF')) ) {s = 46;}
+
+                        else s = 24;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_20 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_20>='\u0000' && LA12_20<='\uFFFF')) ) {s = 46;}
 
                         else s = 24;
 

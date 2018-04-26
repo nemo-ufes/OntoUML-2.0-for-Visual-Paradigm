@@ -26,4 +26,10 @@ class ModelUtils {
 		ch
 	}
 	
+	def String nameOrAlias(ModelElement e) {
+		val it = e
+		if(alias.nullOrEmpty || alias=="unnamed")	return name
+		else											return alias
+	}
+	
 }

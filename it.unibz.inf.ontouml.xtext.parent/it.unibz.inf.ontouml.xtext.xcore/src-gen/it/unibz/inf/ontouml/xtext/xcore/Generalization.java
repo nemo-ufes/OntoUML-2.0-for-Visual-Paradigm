@@ -2,6 +2,7 @@
  */
 package it.unibz.inf.ontouml.xtext.xcore;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,5 +73,14 @@ public interface Generalization extends ModelElement {
 	 * @generated
 	 */
 	void setSubclass(OntoUMLClass value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet%>> gen_sets = new <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet%>>();\n<%org.eclipse.emf.ecore.EObject%> _eContainer = this.eContainer();\nfinal <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.ModelElement%>> _function = new <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.ModelElement%>>()\n{\n\tpublic void accept(final <%it.unibz.inf.ontouml.xtext.xcore.ModelElement%> it)\n\t{\n\t\tif ((it instanceof <%it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet%>))\n\t\t{\n\t\t\tboolean _contains = ((<%it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet%>)it).getGeneralizations().contains(<%this%>);\n\t\t\tif (_contains)\n\t\t\t{\n\t\t\t\tgen_sets.add(((<%it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet%>)it));\n\t\t\t}\n\t\t}\n\t}\n};\n((<%it.unibz.inf.ontouml.xtext.xcore.Model%>) _eContainer).getElements().forEach(_function);\nreturn gen_sets;'"
+	 * @generated
+	 */
+	EList<GeneralizationSet> getGeneralizationSets();
 
 } // Generalization

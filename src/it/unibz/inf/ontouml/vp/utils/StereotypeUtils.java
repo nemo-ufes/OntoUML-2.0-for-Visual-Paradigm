@@ -21,7 +21,7 @@ public class StereotypeUtils {
 	public static final String STR_CATEGORY = "category";
 	public static final String STR_MIXIN = "mixin";
 	public static final String STR_ROLE_MIXIN = "roleMixin";
-	public static final String STR_PHASE_MIXIN = "phaseMixin";
+//	public static final String STR_PHASE_MIXIN = "phaseMixin";
 
 	public static void setUpOntoUMLStereotypes() {
 		final Set<String> missing_str_names = getAllOntoUMLStereotypeNames();
@@ -70,7 +70,7 @@ public class StereotypeUtils {
 		str_names.add(STR_CATEGORY);
 		str_names.add(STR_MIXIN);
 		str_names.add(STR_ROLE_MIXIN);
-		str_names.add(STR_PHASE_MIXIN);
+//		str_names.add(STR_PHASE_MIXIN);
 		return str_names;
 	}
 

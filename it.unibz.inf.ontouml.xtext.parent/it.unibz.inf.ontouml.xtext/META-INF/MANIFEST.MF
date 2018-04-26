@@ -14,13 +14,14 @@ Require-Bundle: it.unibz.inf.ontouml.xtext.xcore;visibility:=reexport,
  org.eclipse.xtext.util;visibility:=reexport,
  org.eclipse.xtend.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: it.unibz.inf.ontouml.xtext.validation,
- it.unibz.inf.ontouml.xtext,
- it.unibz.inf.ontouml.xtext.scoping,
- it.unibz.inf.ontouml.xtext.serializer,
- it.unibz.inf.ontouml.xtext.generator,
+Export-Package: it.unibz.inf.ontouml.xtext,
  it.unibz.inf.ontouml.xtext.formatting2,
+ it.unibz.inf.ontouml.xtext.generator,
  it.unibz.inf.ontouml.xtext.parser.antlr,
  it.unibz.inf.ontouml.xtext.parser.antlr.internal,
- it.unibz.inf.ontouml.xtext.services
+ it.unibz.inf.ontouml.xtext.scoping,
+ it.unibz.inf.ontouml.xtext.serializer,
+ it.unibz.inf.ontouml.xtext.services,
+ it.unibz.inf.ontouml.xtext.utils,
+ it.unibz.inf.ontouml.xtext.validation
 Import-Package: org.apache.log4j

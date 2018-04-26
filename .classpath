@@ -3,13 +3,12 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Visual Paradigm Plugin Development"/>
-	<classpathentry kind="lib" path="lib/org.eclipse.xtext_2.12.0.v20170518-0959.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.emf_2.6.0.v20170609-0928.jar"/>
-	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.emf.common_2.13.0.v20170609-0707.jar"/>
-	<classpathentry kind="lib" path="lib/org.eclipse.xtext.util_2.12.0.v20170518-0959.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/it.unibz.inf.ontouml.xtext"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/it.unibz.inf.ontouml.xtext.xcore"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar"/>
+	<classpathentry kind="lib" path="lib/OntoUML-2.0-Xtext.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.xtext-2.13.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.xtext.util-2.13.0.jar"/>
 	<classpathentry kind="lib" path="lib/guice-3.0.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

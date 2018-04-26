@@ -14,7 +14,6 @@ import it.unibz.inf.ontouml.xtext.xcore.XcorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -302,6 +301,15 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getOntoUMLClass__IsPhase() {
+		return ontoUMLClassEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGeneralization() {
 		return generalizationEClass;
 	}
@@ -322,6 +330,15 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 */
 	public EReference getGeneralization_Subclass() {
 		return (EReference)generalizationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneralization__GetGeneralizationSets() {
+		return generalizationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -358,6 +375,24 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 */
 	public EReference getGeneralizationSet_Generalizations() {
 		return (EReference)generalizationSetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneralizationSet__GetGeneric() {
+		return generalizationSetEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneralizationSet__GetSpecifics() {
+		return generalizationSetEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -417,15 +452,19 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_RIGID);
 		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_SEMI_RIGID);
 		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_ANTI_RIGID);
+		createEOperation(ontoUMLClassEClass, ONTO_UML_CLASS___IS_PHASE);
 
 		generalizationEClass = createEClass(GENERALIZATION);
 		createEReference(generalizationEClass, GENERALIZATION__SUPERCLASS);
 		createEReference(generalizationEClass, GENERALIZATION__SUBCLASS);
+		createEOperation(generalizationEClass, GENERALIZATION___GET_GENERALIZATION_SETS);
 
 		generalizationSetEClass = createEClass(GENERALIZATION_SET);
 		createEAttribute(generalizationSetEClass, GENERALIZATION_SET__IS_DISJOINT);
 		createEAttribute(generalizationSetEClass, GENERALIZATION_SET__IS_COMPLETE);
 		createEReference(generalizationSetEClass, GENERALIZATION_SET__GENERALIZATIONS);
+		createEOperation(generalizationSetEClass, GENERALIZATION_SET___GET_GENERIC);
+		createEOperation(generalizationSetEClass, GENERALIZATION_SET___GET_SPECIFICS);
 
 		// Create enums
 		endurantTypeEEnum = createEEnum(ENDURANT_TYPE);
@@ -478,21 +517,13 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getModelElement_Alias(), theEcorePackage.getEString(), "alias", "unnamed", 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ontoUMLClassEClass, OntoUMLClass.class, "OntoUMLClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOntoUMLClass__type(), this.getEndurantType(), "_type", null, 0, 1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOntoUMLClass__type(), this.getEndurantType(), "_type", "none", 0, 1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOntoUMLClass_GeneralizationsToSuperclasses(), this.getGeneralization(), null, "generalizationsToSuperclasses", null, 0, -1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOntoUMLClass_GeneralizationsToSubclasses(), this.getGeneralization(), null, "generalizationsToSubclasses", null, 0, -1, OntoUMLClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getOntoUMLClass__GetSuperclasses(), null, "getSuperclasses", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(theEcorePackage.getEEList());
-		EGenericType g2 = createEGenericType(this.getOntoUMLClass());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEOperation(getOntoUMLClass__GetSuperclasses(), this.getOntoUMLClass(), "getSuperclasses", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getOntoUMLClass__GetSubclasses(), null, "getSubclasses", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theEcorePackage.getEEList());
-		g2 = createEGenericType(this.getOntoUMLClass());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEOperation(getOntoUMLClass__GetSubclasses(), this.getOntoUMLClass(), "getSubclasses", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getOntoUMLClass__IsUltimateSortal(), theEcorePackage.getEBoolean(), "isUltimateSortal", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -506,14 +537,22 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		initEOperation(getOntoUMLClass__IsAntiRigid(), theEcorePackage.getEBoolean(), "isAntiRigid", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getOntoUMLClass__IsPhase(), theEcorePackage.getEBoolean(), "isPhase", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneralization_Superclass(), this.getOntoUMLClass(), null, "superclass", null, 0, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralization_Subclass(), this.getOntoUMLClass(), null, "subclass", null, 0, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getGeneralization__GetGeneralizationSets(), this.getGeneralizationSet(), "getGeneralizationSets", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generalizationSetEClass, GeneralizationSet.class, "GeneralizationSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneralizationSet_IsDisjoint(), theEcorePackage.getEBoolean(), "isDisjoint", "false", 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneralizationSet_IsComplete(), theEcorePackage.getEBoolean(), "isComplete", "false", 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralizationSet_Generalizations(), this.getGeneralization(), null, "generalizations", null, 0, -1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getGeneralizationSet__GetGeneric(), this.getOntoUMLClass(), "getGeneric", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGeneralizationSet__GetSpecifics(), this.getOntoUMLClass(), "getSpecifics", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(endurantTypeEEnum, EndurantType.class, "EndurantType");
@@ -528,7 +567,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		addEEnumLiteral(endurantTypeEEnum, EndurantType.CATEGORY);
 		addEEnumLiteral(endurantTypeEEnum, EndurantType.MIXIN);
 		addEEnumLiteral(endurantTypeEEnum, EndurantType.ROLE_MIXIN);
-		addEEnumLiteral(endurantTypeEEnum, EndurantType.PHASE_MIXIN);
 
 		// Create resource
 		createResource(eNS_URI);

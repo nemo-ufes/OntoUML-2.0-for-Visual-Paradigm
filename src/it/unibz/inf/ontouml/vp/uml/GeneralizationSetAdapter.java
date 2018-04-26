@@ -24,7 +24,7 @@ public class GeneralizationSetAdapter extends ModelElementAdapter {
 		Iterator<IGeneralization> iter = getInstance().generalizationIterator();
 
 		while (iter.hasNext()) {
-			ModelElementAdapter adap = ModelAccess.getAdapter(iter.next().getId());
+			ModelElementAdapter adap = ModelAccess.getAdapter('_'+iter.next().getId());
 			if (adap != null && adap instanceof GeneralizationAdapter)
 				generalizations.add((GeneralizationAdapter) adap);
 		}

@@ -152,7 +152,8 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * @generated
 	 */
 	public EList<OntoUMLClass> getSuperclasses() {
-		BasicEList<OntoUMLClass> _xblockexpression = null; {
+		BasicEList<OntoUMLClass> _xblockexpression = null;
+		{
 			final BasicEList<OntoUMLClass> supers = new BasicEList<OntoUMLClass>();
 			final Consumer<Generalization> _function = new Consumer<Generalization>() {
 				public void accept(final Generalization it) {
@@ -171,7 +172,8 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * @generated
 	 */
 	public EList<OntoUMLClass> getSubclasses() {
-		BasicEList<OntoUMLClass> _xblockexpression = null; {
+		BasicEList<OntoUMLClass> _xblockexpression = null;
+		{
 			final BasicEList<OntoUMLClass> subs = new BasicEList<OntoUMLClass>();
 			final Consumer<Generalization> _function = new Consumer<Generalization>() {
 				public void accept(final Generalization it) {
@@ -236,7 +238,17 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * @generated
 	 */
 	public boolean isAntiRigid() {
-		return (((Objects.equal(this.get_type(), EndurantType.ROLE) || Objects.equal(this.get_type(), EndurantType.PHASE)) || Objects.equal(this.get_type(), EndurantType.ROLE_MIXIN)) || Objects.equal(this.get_type(), EndurantType.PHASE_MIXIN));
+		return ((Objects.equal(this.get_type(), EndurantType.ROLE) || Objects.equal(this.get_type(), EndurantType.PHASE)) || Objects.equal(this.get_type(), EndurantType.ROLE_MIXIN));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPhase() {
+		EndurantType __type = this.get_type();
+		return Objects.equal(__type, EndurantType.PHASE);
 	}
 
 	/**
@@ -344,6 +356,8 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 				return isSemiRigid();
 			case XcorePackage.ONTO_UML_CLASS___IS_ANTI_RIGID:
 				return isAntiRigid();
+			case XcorePackage.ONTO_UML_CLASS___IS_PHASE:
+				return isPhase();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

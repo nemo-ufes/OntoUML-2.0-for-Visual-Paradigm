@@ -1,9 +1,12 @@
 package it.unibz.inf.ontouml.xtext.utils;
 
+import com.google.common.base.Objects;
+import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import java.util.HashSet;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
 public class ModelUtils {
@@ -31,5 +34,14 @@ public class ModelUtils {
       _xblockexpression = ch;
     }
     return _xblockexpression;
+  }
+  
+  public String nameOrAlias(final ModelElement e) {
+    final ModelElement it = e;
+    if ((StringExtensions.isNullOrEmpty(it.getAlias()) || Objects.equal(it.getAlias(), "unnamed"))) {
+      return it.getName();
+    } else {
+      return it.getAlias();
+    }
   }
 }

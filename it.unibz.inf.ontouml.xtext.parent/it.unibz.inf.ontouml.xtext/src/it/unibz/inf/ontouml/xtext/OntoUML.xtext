@@ -20,7 +20,7 @@ ModelElement:
 	OntoUMLClass | Generalization | GeneralizationSet ;
 
 OntoUMLClass returns OntoUMLClass:
-	_type=EndurantType 'Class' name=ID alias=STRING?
+	_type=EndurantType? 'Class' name=ID alias=STRING?
 	('supers...' '{' generalizationsToSuperclasses+=[Generalization] (',' generalizationsToSuperclasses+=[Generalization])* '}')?
 	('subs...' '{' generalizationsToSubclasses+=[Generalization] (',' generalizationsToSubclasses+=[Generalization])* '}')?
 	;
@@ -28,7 +28,7 @@ OntoUMLClass returns OntoUMLClass:
 enum EndurantType:
 	None | Kind | RelatorKind | ModeKind
 	| QualityKind | Subkind | Role | Phase
-	| Category | Mixin | RoleMixin | PhaseMixin ;
+	| Category | Mixin | RoleMixin; // | PhaseMixin ;
 
 Generalization:
 	'Generalization' name=ID  alias=STRING?
@@ -36,7 +36,7 @@ Generalization:
 
 GeneralizationSet:
 	isDisjoint?='disjoint' isComplete?='complete' 'GeneralizationSet' name=ID  alias=STRING?
-	'generalizations' generalizations+=[Generalization] (',' generalizations+=[Generalization])* ;
+	'generalizations' '{' generalizations+=[Generalization] (',' generalizations+=[Generalization])* '}' ;
 
 //EString returns ecore::EString:
 //	STRING | ID;

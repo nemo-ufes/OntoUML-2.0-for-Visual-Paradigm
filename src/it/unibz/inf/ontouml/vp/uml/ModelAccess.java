@@ -11,6 +11,10 @@ public class ModelAccess {
 	
 	private static HashMap<String, ModelElementAdapter> vpModel = null;
 	
+	private static HashMap<String, ModelElementAdapter> getVpModel() {
+		return vpModel;
+	}
+
 	public static ModelElementAdapter getAdapter(String id) {
 		if(isModelAlive())	return vpModel.get(id);
 		return null;
@@ -22,7 +26,8 @@ public class ModelAccess {
 		Iterator<IModelElement> iter = ApplicationManager.instance().getProjectManager().getProject().allLevelModelElementIterator(m_types);
 		while(iter.hasNext()) {
 			ModelElementAdapter e = AdapterManager.getApater(iter.next());
-			vpModel.put(e.getId(), e);
+			vpModel.put(e.getPrefixedId(), e);
+//			System.out.println(vpModel.get(e.getPrefixedId()).getPrefixedId()+"\t"+vpModel.get(e.getPrefixedId()).getName()+vpModel.get(e.getPrefixedId()).getModelType());
 		}
 	}
 
@@ -35,6 +40,8 @@ public class ModelAccess {
 		return vpModel!=null;
 	}
 	
-	
+	public static Iterator<ModelElementAdapter> getModelIterator() {
+		return getVpModel().values().iterator();
+	}
 
 }

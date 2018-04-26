@@ -23,18 +23,18 @@ class ModelElement
 
 class OntoUMLClass extends ModelElement
 {
-	EndurantType _type
+	EndurantType _type = "none"
 	
 	refers Generalization[] generalizationsToSuperclasses
 	refers Generalization[] generalizationsToSubclasses
 	
-	op EEList<OntoUMLClass> getSuperclasses()
+	op OntoUMLClass[] getSuperclasses()
 	{
 		val supers = new BasicEList<OntoUMLClass>()
 		generalizationsToSuperclasses.forEach[ supers.add(it.superclass) ]
 		supers
 	}
-	op EEList<OntoUMLClass> getSubclasses()
+	op OntoUMLClass[] getSubclasses()
 	{
 		val subs = new BasicEList<OntoUMLClass>()
 		generalizationsToSubclasses.forEach[ subs.add(it.superclass) ]
@@ -72,7 +72,11 @@ class OntoUMLClass extends ModelElement
 		return _type==EndurantType.ROLE
 				|| _type==EndurantType.PHASE 
 				|| _type==EndurantType.ROLE_MIXIN
-				|| _type==EndurantType.PHASE_MIXIN
+//				|| _type==EndurantType.PHASE_MIXIN
+	}
+	op boolean isPhase()
+	{
+		return _type==EndurantType.PHASE 
 	}
 }
 
@@ -89,13 +93,23 @@ enum EndurantType
 	Category as "category" = 8
 	Mixin as "mixin" = 9
 	RoleMixin as "roleMixin" = 10
-	PhaseMixin as "phaseMixin" = 11
+//	PhaseMixin as "phaseMixin" = 11
 }
 
 class Generalization extends ModelElement
 {
 	refers OntoUMLClass superclass
 	refers OntoUMLClass subclass
+	
+	op GeneralizationSet[] getGeneralizationSets() {
+		val gen_sets = new BasicEList<GeneralizationSet>()
+		(eContainer as Model).elements.forEach[ 
+				if(it instanceof GeneralizationSet)
+					if(it.generalizations.contains(this))
+						gen_sets.add(it )
+			]
+		return gen_sets
+	}
 }
 
 class GeneralizationSet extends ModelElement
@@ -104,4 +118,13 @@ class GeneralizationSet extends ModelElement
 	boolean isComplete = "false"
 	
 	refers Generalization[] generalizations
+	
+	op OntoUMLClass getGeneric() {
+		return generalizations.head.superclass
+	}
+	op OntoUMLClass[] getSpecifics() {
+		val specifics = new BasicEList<OntoUMLClass>()
+		generalizations.forEach[ specifics.add(subclass) ]
+		return specifics
+	}
 }
