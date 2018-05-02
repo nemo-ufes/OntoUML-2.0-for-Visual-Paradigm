@@ -89,7 +89,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>> _xblockexpression = null;\n{\n\tfinal <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>> supers = new <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>>();\n\tfinal <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>> _function = new <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>>()\n\t{\n\t\tpublic void accept(final <%it.unibz.inf.ontouml.xtext.xcore.Generalization%> it)\n\t\t{\n\t\t\tsupers.add(it.getSuperclass());\n\t\t}\n\t};\n\tthis.getGeneralizationsToSuperclasses().forEach(_function);\n\t_xblockexpression = supers;\n}\nreturn _xblockexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt; _xblockexpression = null;\n{\n\tfinal &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt; supers = new &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt;();\n\tfinal &lt;%java.util.function.Consumer%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt; _function = new &lt;%java.util.function.Consumer%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt;()\n\t{\n\t\tpublic void accept(final &lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt; it)\n\t\t{\n\t\t\tsupers.add(it.getSuperclass());\n\t\t}\n\t};\n\tthis.getGeneralizationsToSuperclasses().forEach(_function);\n\t_xblockexpression = supers;\n}\nreturn _xblockexpression;'"
 	 * @generated
 	 */
 	EList<OntoUMLClass> getSuperclasses();
@@ -98,7 +98,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>> _xblockexpression = null;\n{\n\tfinal <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>> subs = new <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>>();\n\tfinal <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>> _function = new <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>>()\n\t{\n\t\tpublic void accept(final <%it.unibz.inf.ontouml.xtext.xcore.Generalization%> it)\n\t\t{\n\t\t\tsubs.add(it.getSuperclass());\n\t\t}\n\t};\n\tthis.getGeneralizationsToSubclasses().forEach(_function);\n\t_xblockexpression = subs;\n}\nreturn _xblockexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt; _xblockexpression = null;\n{\n\tfinal &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt; subs = new &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt;();\n\tfinal &lt;%java.util.function.Consumer%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt; _function = new &lt;%java.util.function.Consumer%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt;()\n\t{\n\t\tpublic void accept(final &lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt; it)\n\t\t{\n\t\t\tsubs.add(it.getSuperclass());\n\t\t}\n\t};\n\tthis.getGeneralizationsToSubclasses().forEach(_function);\n\t_xblockexpression = subs;\n}\nreturn _xblockexpression;'"
 	 * @generated
 	 */
 	EList<OntoUMLClass> getSubclasses();
@@ -107,7 +107,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (((<%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.KIND) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.RELATOR_KIND)) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.MODE_KIND)) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.QUALITY_KIND));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (((&lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.KIND) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.RELATOR_KIND)) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.MODE_KIND)) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.QUALITY_KIND));'"
 	 * @generated
 	 */
 	boolean isUltimateSortal();
@@ -116,7 +116,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (((this.isUltimateSortal() || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.SUBKIND)) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.ROLE)) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.PHASE));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (((this.isUltimateSortal() || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.SUBKIND)) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.ROLE)) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.PHASE));'"
 	 * @generated
 	 */
 	boolean isSortal();
@@ -125,7 +125,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return ((!this.isSortal()) && (!<%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.NONE)));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return ((!this.isSortal()) &amp;&amp; (!&lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.NONE)));'"
 	 * @generated
 	 */
 	boolean isNonSortal();
@@ -134,7 +134,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (((!this.isSemiRigid()) && (!this.isSemiRigid())) && (!<%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.NONE)));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (((!this.isSemiRigid()) &amp;&amp; (!this.isSemiRigid())) &amp;&amp; (!&lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.NONE)));'"
 	 * @generated
 	 */
 	boolean isRigid();
@@ -143,7 +143,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%it.unibz.inf.ontouml.xtext.xcore.EndurantType%> __type = this.get_type();\nreturn <%com.google.common.base.Objects%>.equal(__type, <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.MIXIN);'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt; __type = this.get_type();\nreturn &lt;%com.google.common.base.Objects%&gt;.equal(__type, &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.MIXIN);'"
 	 * @generated
 	 */
 	boolean isSemiRigid();
@@ -152,7 +152,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return ((<%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.ROLE) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.PHASE)) || <%com.google.common.base.Objects%>.equal(this.get_type(), <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.ROLE_MIXIN));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return ((&lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.ROLE) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.PHASE)) || &lt;%com.google.common.base.Objects%&gt;.equal(this.get_type(), &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.ROLE_MIXIN));'"
 	 * @generated
 	 */
 	boolean isAntiRigid();
@@ -161,7 +161,7 @@ public interface OntoUMLClass extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%it.unibz.inf.ontouml.xtext.xcore.EndurantType%> __type = this.get_type();\nreturn <%com.google.common.base.Objects%>.equal(__type, <%it.unibz.inf.ontouml.xtext.xcore.EndurantType%>.PHASE);'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt; __type = this.get_type();\nreturn &lt;%com.google.common.base.Objects%&gt;.equal(__type, &lt;%it.unibz.inf.ontouml.xtext.xcore.EndurantType%&gt;.PHASE);'"
 	 * @generated
 	 */
 	boolean isPhase();

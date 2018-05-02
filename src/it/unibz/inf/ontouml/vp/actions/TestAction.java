@@ -4,13 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.Iterator;
 
-import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
@@ -31,7 +28,9 @@ import com.vp.plugin.model.factory.IModelElementFactory;
 import it.unibz.inf.ontouml.vp.OntoUMLPluginForVP;
 import it.unibz.inf.ontouml.vp.utils.StereotypeUtils;
 import it.unibz.inf.ontouml.xtext.OntoUMLStandaloneSetup;
+import it.unibz.inf.ontouml.xtext.xcore.EndurantType;
 import it.unibz.inf.ontouml.xtext.xcore.Model;
+import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory;
 
 public class TestAction implements VPActionController {
@@ -41,9 +40,9 @@ public class TestAction implements VPActionController {
 	
 	@Override
 	public void performAction(VPAction arg0) {
-		outputMessages();
+//		outputMessages();
 //		showMessageOnLog();
-//		testStandaloneXtext();
+		testStandaloneXtext();
 //		testClassRelationships();
 //		testGeneralizations();
 //		printAllElements();
@@ -109,7 +108,7 @@ public class TestAction implements VPActionController {
 	        System.out.println("Create model!");
 //	        resource.getContents().add(MetaFactory.eINSTANCE.createML2Model());
 //	        ML2Model m = MetaFactory.eINSTANCE.createML2Model();
-	        resource.getContents().add(XcoreFactory.eINSTANCE.createModel());
+	        resource.getContents().add(getTestModel());
 	        
 //	        resource.save(Collections.EMPTY_MAP);
 //	        resource.save(new ByteArrayOutputStream(),null);
@@ -119,6 +118,18 @@ public class TestAction implements VPActionController {
 		}
 		
 		System.out.println("Success!");
+	}
+	
+	private static EObject getTestModel() {
+		Model m = XcoreFactory.eINSTANCE.createModel();
+		OntoUMLClass c = XcoreFactory.eINSTANCE.createOntoUMLClass();
+		c.set_type(EndurantType.KIND);
+		c.setName("Person");
+		c.setAlias("HumanBeing");
+		m.getElements().add(c);
+//		m.getElements().add(XcoreFactory.eINSTANCE.createGeneralization());
+//		m.getElements().add(XcoreFactory.eINSTANCE.createGeneralizationSet());
+		return m;
 	}
 	
 	private static void createTempFile() {

@@ -152,8 +152,7 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * @generated
 	 */
 	public EList<OntoUMLClass> getSuperclasses() {
-		BasicEList<OntoUMLClass> _xblockexpression = null;
-		{
+		BasicEList<OntoUMLClass> _xblockexpression = null; {
 			final BasicEList<OntoUMLClass> supers = new BasicEList<OntoUMLClass>();
 			final Consumer<Generalization> _function = new Consumer<Generalization>() {
 				public void accept(final Generalization it) {
@@ -172,8 +171,7 @@ public class OntoUMLClassImpl extends ModelElementImpl implements OntoUMLClass {
 	 * @generated
 	 */
 	public EList<OntoUMLClass> getSubclasses() {
-		BasicEList<OntoUMLClass> _xblockexpression = null;
-		{
+		BasicEList<OntoUMLClass> _xblockexpression = null; {
 			final BasicEList<OntoUMLClass> subs = new BasicEList<OntoUMLClass>();
 			final Consumer<Generalization> _function = new Consumer<Generalization>() {
 				public void accept(final Generalization it) {

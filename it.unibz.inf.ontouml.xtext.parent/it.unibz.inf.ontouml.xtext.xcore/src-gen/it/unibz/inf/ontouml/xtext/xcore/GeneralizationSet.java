@@ -97,7 +97,7 @@ public interface GeneralizationSet extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>>head(this.getGeneralizations()).getSuperclass();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt;head(this.getGeneralizations()).getSuperclass();'"
 	 * @generated
 	 */
 	OntoUMLClass getGeneric();
@@ -106,7 +106,7 @@ public interface GeneralizationSet extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>> specifics = new <%org.eclipse.emf.common.util.BasicEList%><<%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%>>();\nfinal <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>> _function = new <%java.util.function.Consumer%><<%it.unibz.inf.ontouml.xtext.xcore.Generalization%>>()\n{\n\tpublic void accept(final <%it.unibz.inf.ontouml.xtext.xcore.Generalization%> it)\n\t{\n\t\tspecifics.add(it.getSubclass());\n\t}\n};\nthis.getGeneralizations().forEach(_function);\nreturn specifics;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt; specifics = new &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass%&gt;&gt;();\nfinal &lt;%java.util.function.Consumer%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt; _function = new &lt;%java.util.function.Consumer%&gt;&lt;&lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt;&gt;()\n{\n\tpublic void accept(final &lt;%it.unibz.inf.ontouml.xtext.xcore.Generalization%&gt; it)\n\t{\n\t\tspecifics.add(it.getSubclass());\n\t}\n};\nthis.getGeneralizations().forEach(_function);\nreturn specifics;'"
 	 * @generated
 	 */
 	EList<OntoUMLClass> getSpecifics();
