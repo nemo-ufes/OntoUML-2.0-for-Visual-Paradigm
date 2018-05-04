@@ -22,7 +22,7 @@ public class ModelAccess {
 	
 	public static void loadModel() {
 		clearModel();
-		String[] m_types = {IModelElementFactory.MODEL_TYPE_CLASS, IModelElementFactory.MODEL_TYPE_GENERALIZATION, IModelElementFactory.MODEL_TYPE_GENERALIZATION_SET};
+		String[] m_types = {IModelElementFactory.MODEL_TYPE_CLASS, IModelElementFactory.MODEL_TYPE_GENERALIZATION };//, IModelElementFactory.MODEL_TYPE_GENERALIZATION_SET};
 		Iterator<IModelElement> iter = ApplicationManager.instance().getProjectManager().getProject().allLevelModelElementIterator(m_types);
 		while(iter.hasNext()) {
 			ModelElementAdapter e = AdapterManager.getApater(iter.next());

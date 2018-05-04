@@ -19,7 +19,7 @@ abstract public class ModelElementAdapter {
 	}
 	
 	public String getPrefixedId() {
-		return '_'+getInstance().getId();
+		return ('_'+getInstance().getId()).replace(".", "");
 	}
 	
 	public String getName() {

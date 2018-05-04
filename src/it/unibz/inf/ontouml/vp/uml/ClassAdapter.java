@@ -31,7 +31,7 @@ public class ClassAdapter extends ModelElementAdapter {
 		while(iter.hasNext()) {
 			IModelElement e = iter.next();
 			if(e.getModelType()==IModelElementFactory.MODEL_TYPE_GENERALIZATION) {
-				ModelElementAdapter adap = ModelAccess.getAdapter('_'+e.getId());
+				ModelElementAdapter adap = ModelAccess.getAdapter(('_'+e.getId()).replace(".", ""));
 				if(adap!=null && adap instanceof GeneralizationAdapter) {
 					sub_gens.add((GeneralizationAdapter) adap);
 				}
@@ -47,7 +47,7 @@ public class ClassAdapter extends ModelElementAdapter {
 		while(iter.hasNext()) {
 			IModelElement e = iter.next();
 			if(e.getModelType()==IModelElementFactory.MODEL_TYPE_GENERALIZATION) {
-				ModelElementAdapter adap = ModelAccess.getAdapter('_'+e.getId());
+				ModelElementAdapter adap = ModelAccess.getAdapter(('_'+e.getId()).replace(".", ""));
 				if(adap!=null && adap instanceof GeneralizationAdapter) {
 					super_gens.add((GeneralizationAdapter) adap);
 				}

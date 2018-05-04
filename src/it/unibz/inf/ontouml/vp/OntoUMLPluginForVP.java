@@ -8,6 +8,7 @@ import it.unibz.inf.ontouml.vp.utils.StereotypeUtils;
 public class OntoUMLPluginForVP implements VPPlugin {
 
 	public static final String PLUGIN_ID = "it.unibz.inf.ontouml.vp";
+	public static final String PLUGIN_NAME = "OntoUML Plugin";
 
 	@Override
 	public void loaded(VPPluginInfo arg0) {

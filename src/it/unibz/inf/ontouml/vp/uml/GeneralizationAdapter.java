@@ -14,7 +14,7 @@ public class GeneralizationAdapter extends ModelElementAdapter {
 	}
 	
 	public ClassAdapter getSuperclass() {
-		ModelElementAdapter superclass = ModelAccess.getAdapter('_'+getInstance().getFrom().getId());
+		ModelElementAdapter superclass = ModelAccess.getAdapter(('_'+getInstance().getFrom().getId()).replace(".", ""));
 		if(superclass!=null && superclass instanceof ClassAdapter) {
 			return (ClassAdapter) superclass;
 		}
@@ -22,7 +22,7 @@ public class GeneralizationAdapter extends ModelElementAdapter {
 	}
 	
 	public ClassAdapter getSubclass() {
-		ModelElementAdapter subclass = ModelAccess.getAdapter('_'+getInstance().getTo().getId());
+		ModelElementAdapter subclass = ModelAccess.getAdapter(('_'+getInstance().getTo().getId()).replace(".", ""));
 		if(subclass!=null && subclass instanceof ClassAdapter) {
 			return (ClassAdapter) subclass;
 		}
@@ -30,7 +30,7 @@ public class GeneralizationAdapter extends ModelElementAdapter {
 	}
 	
 	public GeneralizationSetAdapter getGeneralizationSet() {
-		return (GeneralizationSetAdapter) ModelAccess.getAdapter('_'+getInstance().getGeneralizationSet().getId());
+		return (GeneralizationSetAdapter) ModelAccess.getAdapter(('_'+getInstance().getGeneralizationSet().getId()).replace(".", ""));
 	}
 
 }

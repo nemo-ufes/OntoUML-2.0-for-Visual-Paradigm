@@ -111,21 +111,27 @@ public class OntoUMLModelAccess {
 		try {
 //			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 //	        Map<String, Object> map = XtextResource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
-			getResource().save(Collections.EMPTY_MAP);
+			Resource r = getResource();
+			r.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		System.out.println(getResourceSet().getResources().get(0));
-//		System.out.println(getResourceSet().getResources().get(0).getContents());
-//		System.out.println(getResourceSet().getResources().get(0).getContents().get(0));
-//		System.out.println(((Model) getResourceSet().getResources().get(0).getContents().get(0)).getElements());
+		System.out.println(getResourceSet().getResources().get(0));
+		System.out.println(getResourceSet().getResources().get(0).getContents());
+		System.out.println(getResourceSet().getResources().get(0).getContents().get(0));
+		System.out.println(((Model) getResourceSet().getResources().get(0).getContents().get(0)).getElements());
 		
-//		// Validation
-//		IResourceValidator validator = ((XtextResource)resource).getResourceServiceProvider().getResourceValidator();
-//		List<Issue> issues = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
+		// Validation
+//		System.out.println("Validando!!!");
+//		ViewManager vm = ApplicationManager.instance().getViewManager();
+//		IResourceValidator validator = ((XtextResource)getResourceSet().getResources().get(0)).getResourceServiceProvider().getResourceValidator();
+//		List<Issue> issues = validator.validate((XtextResource) getResourceSet().getResources().get(0), CheckMode.ALL, CancelIndicator.NullImpl);
 //		for (Issue issue : issues) {
-//		  System.out.println(issue.getMessage());
+//			System.out.println("Issue!!!");
+//			System.out.println(issue.getMessage());
+//			vm.clearMessages(OntoUMLPluginForVP.PLUGIN_NAME);
+//			vm.showMessage(issue.getMessage(), OntoUMLPluginForVP.PLUGIN_NAME);
 //		}
 //		
 //		// Code Generator
@@ -144,9 +150,9 @@ public class OntoUMLModelAccess {
 		IResourceValidator validator = res.getResourceServiceProvider().getResourceValidator();
 		List<Issue> issues = validator.validate(res, CheckMode.ALL, CancelIndicator.NullImpl);
 		ViewManager vm = ApplicationManager.instance().getViewManager();
-		vm.clearMessages(OntoUMLPluginForVP.PLUGIN_ID);
+		vm.clearMessages(OntoUMLPluginForVP.PLUGIN_NAME);
 		for (Issue issue : issues) {
-			vm.showMessage("[ERROR]\t"+issue.getMessage(),OntoUMLPluginForVP.PLUGIN_ID);
+			vm.showMessage("[ERROR]\t"+issue.getMessage(),OntoUMLPluginForVP.PLUGIN_NAME);
 			System.out.println("[ERROR]\t"+issue.getMessage());
 		}
 		
