@@ -21,7 +21,6 @@
 					toolbarPath="it.unibz.inf.ontouml.vp.actionset1.toolbar1/#">
 				<actionController class="it.unibz.inf.ontouml.vp.actions.ModelVerificationAction" />
 			</action>
-			<!--
 			<action 
 					id="it.unibz.inf.ontouml.vp.actions.ReloadPluginAction"
 					actionType="generalAction"
@@ -44,6 +43,7 @@
 					toolbarPath="it.unibz.inf.ontouml.vp.actionset1.toolbar1/#">
 				<actionController class="it.unibz.inf.ontouml.vp.actions.TestAction" />
 			</action>
+			<!--
 			-->
 		</actionSet>
 	</actionSets>

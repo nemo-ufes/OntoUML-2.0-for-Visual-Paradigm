@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -13,13 +15,18 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.inject.Injector;
 import com.vp.plugin.ApplicationManager;
+import com.vp.plugin.ProjectManager;
 import com.vp.plugin.ViewManager;
 import com.vp.plugin.action.VPAction;
 import com.vp.plugin.action.VPActionController;
 import com.vp.plugin.model.IClass;
 import com.vp.plugin.model.IGeneralization;
 import com.vp.plugin.model.IModelElement;
+import com.vp.plugin.model.IProject;
 import com.vp.plugin.model.IStereotype;
+import com.vp.plugin.model.ITaggedValue;
+import com.vp.plugin.model.ITaggedValueDefinition;
+import com.vp.plugin.model.ITaggedValueDefinitionContainer;
 import com.vp.plugin.model.factory.IModelElementFactory;
 
 //import br.ufes.inf.nemo.ml2.ML2StandaloneSetup;
@@ -40,9 +47,11 @@ public class TestAction implements VPActionController {
 	
 	@Override
 	public void performAction(VPAction arg0) {
+		checkOntoUMLStereotypes();
+		StereotypeUtils.setUpOntoUMLStereotypes();
 //		outputMessages();
 //		showMessageOnLog();
-		testStandaloneXtext();
+//		testStandaloneXtext();
 //		testClassRelationships();
 //		testGeneralizations();
 //		printAllElements();
@@ -54,6 +63,90 @@ public class TestAction implements VPActionController {
 	public void update(VPAction arg0) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void checkOntoUMLStereotypes() {
+System.out.print("Installed Class Stereeotypes");
+		
+		final ProjectManager pm =ApplicationManager.instance().getProjectManager(); 
+		final IProject p = pm.getProject();
+		IModelElement[] selectable_stereotypes = pm.getSelectableStereotypesForModelType(IModelElementFactory.MODEL_TYPE_CLASS, p, true);
+		
+		if(selectable_stereotypes==null || selectable_stereotypes.length==0) {
+			System.out.println(": No selectable stereotypes.");
+			return ;
+		}
+		
+		for (IModelElement str : selectable_stereotypes) {
+			System.out.print(": "+str.getName());
+		}
+		System.out.println();
+		
+		System.out.print("Installed Association Stereeotypes");
+		
+		selectable_stereotypes = pm.getSelectableStereotypesForModelType(IModelElementFactory.MODEL_TYPE_ASSOCIATION, p, true);
+		
+		if(selectable_stereotypes==null || selectable_stereotypes.length==0) {
+			System.out.println(": No selectable stereotypes.");
+			return ;
+		}
+		
+		for (IModelElement str : selectable_stereotypes) {
+			System.out.print(": "+str.getName());
+		}
+		System.out.println();
+		
+//		IClass c = IModelElementFactory.instance().createClass();
+//		c.addStereotype("asd");
+//		c.addStereotype("another_kind");
+//		IStereotype kind_str=null;
+//		for (IStereotype c_str : c.toStereotypeModelArray()) {
+//			if(Objects.equals(c_str.getName(), "asd"))
+//				kind_str = c_str;
+//		}
+//
+//		if(StereotypeUtils.getInstalledClassStereotypes().contains(kind_str)) {
+//			System.out.println("We've created the stereotype «asd» again.");
+//		} else {
+//			System.out.println("We've created the stereotype «another_kind», but recovered the stereotype «asd». =)");
+//		}
+//
+//		c.delete();
+		
+//		IStereotype str = IModelElementFactory.instance().createStereotype();
+//		str.setName("asd");
+//		str.setBaseType(IModelElementFactory.MODEL_TYPE_ASSOCIATION);
+//		
+//		ITaggedValueDefinitionContainer tvdc = IModelElementFactory.instance().createTaggedValueDefinitionContainer();
+//		str.setTaggedValueDefinitions(tvdc);
+//		
+//		ITaggedValueDefinition tvd = tvdc.createTaggedValueDefinition();
+//		tvd.setName("isRealLife");
+//		tvd.setType(ITaggedValueDefinition.TYPE_BOOLEAN);
+//		tvd.setDefaultValue("true");
+		
+		
+//		final Set<String> installed =  StereotypeUtils.getInstalledAssociationStereotypeNames();
+//		final Set<String> ontouml_strs =  StereotypeUtils.getOntoUMLAssociationStereotypeNames();
+//		
+//		System.out.print("OntoUML Association Stereotypes = [");
+//		for (String string : ontouml_strs) {
+//			System.out.print(string+" ");
+//		}
+//		System.out.println("]");
+//		
+//		System.out.print("Visual Paradigm's Stereotypes = [");
+//		for (String string : installed) {
+//			System.out.print(string+" ");
+//		}
+//		System.out.println("]");
+//		
+//		System.out.print("Not Installed Stereotypes = [");
+//		for (String string : ontouml_strs) {
+//			if(!installed.contains(string))
+//				System.out.print(string+" ");
+//		}
+//		System.out.println("]");
 	}
 	
 	private static void showMessageOnLog() {
@@ -211,7 +304,7 @@ public class TestAction implements VPActionController {
 	
 	private static void createStereotype() {
 		final String str_name = "testStereotype";
-		if(StereotypeUtils.getAllStereotypeNames().contains(str_name)) {
+		if(StereotypeUtils.getInstalledClassStereotypeNames().contains(str_name)) {
 			System.out.println("Stereotype «"+str_name+"» already present.");
 		}
 		else {
@@ -225,7 +318,7 @@ public class TestAction implements VPActionController {
 	
 	private static void deleteStereotype() {
 		final String str_name = "testStereotype";
-		if(StereotypeUtils.getAllStereotypeNames().contains(str_name)) {
+		if(StereotypeUtils.getInstalledClassStereotypeNames().contains(str_name)) {
 			System.out.println("Stereotype «"+str_name+"» present. Deleting it...");
 			StereotypeUtils.getStereotype(str_name, IModelElementFactory.MODEL_TYPE_CLASS).delete();
 			System.out.println("Stereotype deleted.");

@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Visual Paradigm Plugin Development"/>
 	<classpathentry kind="lib" path="lib/antlr-runtime-3.2.jar"/>
 	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/guava-19.0-rc3.jar"/>
@@ -21,5 +20,6 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext-2.13.0.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext.util-2.13.0.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext.xbase.lib-2.13.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Visual Paradigm Plug-in Library"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
