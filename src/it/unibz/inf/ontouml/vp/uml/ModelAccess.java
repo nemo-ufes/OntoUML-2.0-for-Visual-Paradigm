@@ -15,7 +15,7 @@ public class ModelAccess {
 		return vpModel;
 	}
 
-	public static ModelElementAdapter getAdapter(String id) {
+	private static ModelElementAdapter getAdapter(String id) {
 		if(isModelAlive())	return vpModel.get(id);
 		return null;
 	}

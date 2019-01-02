@@ -1,7 +1,6 @@
 package it.unibz.inf.ontouml.vp.uml;
 
-import java.util.List;
-
+import com.vp.plugin.model.IAssociation;
 import com.vp.plugin.model.IClass;
 import com.vp.plugin.model.IGeneralization;
 import com.vp.plugin.model.IGeneralizationSet;
@@ -11,7 +10,6 @@ import com.vp.plugin.model.factory.IModelElementFactory;
 import it.unibz.inf.ontouml.xtext.xcore.Generalization;
 import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
 import it.unibz.inf.ontouml.xtext.xcore.Model;
-import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory;
 
@@ -21,6 +19,8 @@ public class AdapterManager {
 		switch (adaptee.getModelType()) {
 		case IModelElementFactory.MODEL_TYPE_CLASS:
 			return new ClassAdapter((IClass) adaptee);
+		case IModelElementFactory.MODEL_TYPE_ASSOCIATION:
+			return new AssociationAdapter((IAssociation) adaptee);
 		case IModelElementFactory.MODEL_TYPE_GENERALIZATION:
 			return new GeneralizationAdapter((IGeneralization) adaptee);
 		case IModelElementFactory.MODEL_TYPE_GENERALIZATION_SET:
@@ -91,26 +91,26 @@ public class AdapterManager {
 	
 	private static void updateClass(Model model, ClassAdapter uml_class) {
 		OntoUMLClass onto_class = (OntoUMLClass) model.getElementByName(uml_class.getPrefixedId());
-		List<Generalization> subs = onto_class.getGeneralizationsToSubclasses();
-		for (GeneralizationAdapter gen : uml_class.getGeneralizationsToSubclasses()) {
-			onto_class.getGeneralizationsToSubclasses().add((Generalization) model.getElementByName(gen.getPrefixedId()));
-		}
-		List<Generalization> supers = onto_class.getGeneralizationsToSuperclasses();
-		for (GeneralizationAdapter gen : uml_class.getGeneralizationsToSuperclasses()) {
-			onto_class.getGeneralizationsToSuperclasses().add((Generalization) model.getElementByName(gen.getPrefixedId()));
-		}
+//		List<Generalization> subs = onto_class.getGeneralizationsToSubclasses();
+//		for (GeneralizationAdapter gen : uml_class.getGeneralizationsToSubclasses()) {
+//			onto_class.getGeneralizationsToSubclasses().add((Generalization) model.getElementByName(gen.getPrefixedId()));
+//		}
+//		List<Generalization> supers = onto_class.getGeneralizationsToSuperclasses();
+//		for (GeneralizationAdapter gen : uml_class.getGeneralizationsToSuperclasses()) {
+//			onto_class.getGeneralizationsToSuperclasses().add((Generalization) model.getElementByName(gen.getPrefixedId()));
+//		}
 		System.out.println(onto_class);
-		System.out.println(onto_class.getGeneralizationsToSubclasses());
-		System.out.println(onto_class.getGeneralizationsToSuperclasses());
+//		System.out.println(onto_class.getGeneralizationsToSubclasses());
+//		System.out.println(onto_class.getGeneralizationsToSuperclasses());
 	}
 
 	private static void updateGeneralization(Model model, GeneralizationAdapter uml_gen) {
 		Generalization onto_gen = (Generalization) model.getElementByName(uml_gen.getPrefixedId());
-		onto_gen.setSuperclass((OntoUMLClass) model.getElementByName(uml_gen.getSuperclass().getPrefixedId()));
-		onto_gen.setSubclass((OntoUMLClass) model.getElementByName(uml_gen.getSubclass().getPrefixedId()));
+//		onto_gen.setSuperclass((OntoUMLClass) model.getElementByName(uml_gen.getSuperclass().getPrefixedId()));
+//		onto_gen.setSubclass((OntoUMLClass) model.getElementByName(uml_gen.getSubclass().getPrefixedId()));
 		System.out.println(onto_gen);
-		System.out.println(onto_gen.getSuperclass());
-		System.out.println(onto_gen.getSubclass());
+//		System.out.println(onto_gen.getSuperclass());
+//		System.out.println(onto_gen.getSubclass());
 	}
 
 	private static void updateGeneralizationSet(Model model, GeneralizationSetAdapter uml_gen_set) {

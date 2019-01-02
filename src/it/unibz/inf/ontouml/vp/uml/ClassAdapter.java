@@ -31,10 +31,12 @@ public class ClassAdapter extends ModelElementAdapter {
 		while(iter.hasNext()) {
 			IModelElement e = iter.next();
 			if(e.getModelType()==IModelElementFactory.MODEL_TYPE_GENERALIZATION) {
-				ModelElementAdapter adap = ModelAccess.getAdapter(('_'+e.getId()).replace(".", ""));
-				if(adap!=null && adap instanceof GeneralizationAdapter) {
-					sub_gens.add((GeneralizationAdapter) adap);
-				}
+				GeneralizationAdapter g = (GeneralizationAdapter) AdapterManager.getApater(e);
+				sub_gens.add(g);
+//				ModelElementAdapter adap = ModelAccess.getAdapter(('_'+e.getId()).replace(".", ""));
+//				if(adap!=null && adap instanceof GeneralizationAdapter) {
+//					sub_gens.add((GeneralizationAdapter) adap);
+//				}
 			}
 		}
 		return sub_gens;
@@ -47,10 +49,12 @@ public class ClassAdapter extends ModelElementAdapter {
 		while(iter.hasNext()) {
 			IModelElement e = iter.next();
 			if(e.getModelType()==IModelElementFactory.MODEL_TYPE_GENERALIZATION) {
-				ModelElementAdapter adap = ModelAccess.getAdapter(('_'+e.getId()).replace(".", ""));
-				if(adap!=null && adap instanceof GeneralizationAdapter) {
-					super_gens.add((GeneralizationAdapter) adap);
-				}
+				GeneralizationAdapter g = (GeneralizationAdapter) AdapterManager.getApater(e);
+				super_gens.add(g);
+//				ModelElementAdapter adap = ModelAccess.getAdapter(('_'+e.getId()).replace(".", ""));
+//				if(adap!=null && adap instanceof GeneralizationAdapter) {
+//					super_gens.add((GeneralizationAdapter) adap);
+//				}
 			}
 		}
 		return super_gens;
@@ -64,8 +68,8 @@ public class ClassAdapter extends ModelElementAdapter {
 			return EndurantType.MIXIN;
 		if(strs.contains(StereotypeUtils.STR_ROLE_MIXIN))
 			return EndurantType.ROLE_MIXIN;
-//		if(strs.contains(StereotypeUtils.STR_PHASE_MIXIN))
-//			return EndurantType.PHASE_MIXIN;
+		if(strs.contains(StereotypeUtils.STR_PHASE_MIXIN))
+			return EndurantType.PHASE_MIXIN;
 		if(strs.contains(StereotypeUtils.STR_KIND))
 			return EndurantType.KIND;
 		if(strs.contains(StereotypeUtils.STR_MODE_KIND))

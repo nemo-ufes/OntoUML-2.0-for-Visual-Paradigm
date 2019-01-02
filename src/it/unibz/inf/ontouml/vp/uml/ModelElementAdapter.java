@@ -18,12 +18,20 @@ abstract public class ModelElementAdapter {
 		return getInstance().getId();
 	}
 	
+	public String getQuotatedId() {
+		return "\"" + getInstance().getId() + "\"";
+	}
+	
 	public String getPrefixedId() {
 		return ('_'+getInstance().getId()).replace(".", "");
 	}
 	
 	public String getName() {
 		return getInstance().getName();
+	}
+	
+	public String getQuotatedName() {
+		return "\"" + getInstance().getName() + "\"";
 	}
 	
 	public String getModelType() {

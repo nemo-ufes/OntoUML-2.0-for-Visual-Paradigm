@@ -5,13 +5,19 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.util.CancelIndicator;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
 
 import com.google.inject.Injector;
 import com.vp.plugin.ApplicationManager;
@@ -19,6 +25,8 @@ import com.vp.plugin.ProjectManager;
 import com.vp.plugin.ViewManager;
 import com.vp.plugin.action.VPAction;
 import com.vp.plugin.action.VPActionController;
+import com.vp.plugin.model.IAssociation;
+import com.vp.plugin.model.IAssociationEnd;
 import com.vp.plugin.model.IClass;
 import com.vp.plugin.model.IGeneralization;
 import com.vp.plugin.model.IModelElement;
@@ -33,10 +41,13 @@ import com.vp.plugin.model.factory.IModelElementFactory;
 //import br.ufes.inf.nemo.ml2.meta.ML2Model;
 //import br.ufes.inf.nemo.ml2.meta.MetaFactory;
 import it.unibz.inf.ontouml.vp.OntoUMLPluginForVP;
+import it.unibz.inf.ontouml.vp.uml.OntoUMLModelGenerator;
 import it.unibz.inf.ontouml.vp.utils.StereotypeUtils;
 import it.unibz.inf.ontouml.xtext.OntoUMLStandaloneSetup;
+import it.unibz.inf.ontouml.xtext.generator.OntoUMLGenerator;
 import it.unibz.inf.ontouml.xtext.xcore.EndurantType;
 import it.unibz.inf.ontouml.xtext.xcore.Model;
+import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory;
 
@@ -46,9 +57,19 @@ public class TestAction implements VPActionController {
 	private static XtextResourceSet resourceSet;
 	
 	@Override
+	public void update(VPAction arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
 	public void performAction(VPAction arg0) {
-		checkOntoUMLStereotypes();
-		StereotypeUtils.setUpOntoUMLStereotypes();
+		
+//		testGeneratedModelValidation();
+//		testGenerateOntoUMLModel();
+//		testAssociationGetters();
+//		checkOntoUMLStereotypes();
+//		StereotypeUtils.setUpOntoUMLStereotypes();
 //		outputMessages();
 //		showMessageOnLog();
 //		testStandaloneXtext();
@@ -58,15 +79,75 @@ public class TestAction implements VPActionController {
 //		createStereotype();
 //		deleteStereotype();
 	}
+	
+	private void testGeneratedModelValidation() {
+		System.out.println("Validating OntoUML Model -----------------------------------------");
+		Injector injector = new OntoUMLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 
-	@Override
-	public void update(VPAction arg0) {
-		// TODO Auto-generated method stub
+		File user;
+		try {
+			user = File.createTempFile("mymodel", ".ontouml");
+			FileWriter fw = new FileWriter(user);
+			fw.write((new OntoUMLModelGenerator()).generateOntoUMLModel());
+			fw.close();
 
+			Resource resource = resourceSet.getResource(URI.createFileURI(user.getAbsolutePath()), true);
+			Model model = (Model) resource.getContents().get(0);
+			resource.save(null);
+
+			IResourceValidator validator = ((XtextResource) resource).getResourceServiceProvider()
+					.getResourceValidator();
+			List<Issue> issues = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
+			for (Issue issue : issues) {
+//				ModelElement me = (ModelElement) model.eContents().get(issue.);
+//				System.out.print("> "+issue.getOffset()+'|'+issue.getUriToProblem()+'|'+issue.getLength()+'|'+issue.toString()+'\n');
+				
+//				for (String str : issue.getUriToProblem().deresolve(base)segments()) {
+//					System.out.print("> "+str+" ");
+//				}
+//				System.out.println();
+				
+				URI meUri = issue.getUriToProblem().deresolve(resource.getURI());
+				int index = Integer.parseInt(meUri.toString().substring(meUri.toString().lastIndexOf('.')+1));
+				
+				System.out.println("> "+model.getElements().get(index).getName()+" | "+model.getElements().get(index).getAlias());
+				
+				System.out.println(issue.getMessage());
+			}
+
+			user.delete();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Success!-----------------------------------------");
+	}
+
+	private void testGenerateOntoUMLModel() {
+		String model = (new OntoUMLModelGenerator()).generateOntoUMLModel();
+		System.out.println("OntoUML Model Start");
+		System.out.println(model);
+		System.out.println("OntoUML Model Finish");
+	}
+
+	private void testAssociationGetters() {
+		final ProjectManager pm =ApplicationManager.instance().getProjectManager(); 
+		final IProject p = pm.getProject();
+		@SuppressWarnings("rawtypes")
+		Iterator iter = p.allLevelModelElementIterator(IModelElementFactory.MODEL_TYPE_ASSOCIATION);
+		
+		while(iter.hasNext()) {
+			IAssociation a = (IAssociation) iter.next();
+			
+			System.out.print("ASSOCIATION "+a.getName()+" "+a.getId());
+			System.out.print(" FROM ["+((IAssociationEnd) a.getFromEnd()).getMultiplicity()+"] "+a.getFrom().getName());
+			System.out.print(" TO ["+((IAssociationEnd) a.getToEnd()).getMultiplicity()+"] "+a.getTo().getName()+'\n');
+		}
 	}
 	
 	public void checkOntoUMLStereotypes() {
-System.out.print("Installed Class Stereeotypes");
+		System.out.print("Installed Class Stereeotypes");
 		
 		final ProjectManager pm =ApplicationManager.instance().getProjectManager(); 
 		final IProject p = pm.getProject();
@@ -95,58 +176,6 @@ System.out.print("Installed Class Stereeotypes");
 			System.out.print(": "+str.getName());
 		}
 		System.out.println();
-		
-//		IClass c = IModelElementFactory.instance().createClass();
-//		c.addStereotype("asd");
-//		c.addStereotype("another_kind");
-//		IStereotype kind_str=null;
-//		for (IStereotype c_str : c.toStereotypeModelArray()) {
-//			if(Objects.equals(c_str.getName(), "asd"))
-//				kind_str = c_str;
-//		}
-//
-//		if(StereotypeUtils.getInstalledClassStereotypes().contains(kind_str)) {
-//			System.out.println("We've created the stereotype «asd» again.");
-//		} else {
-//			System.out.println("We've created the stereotype «another_kind», but recovered the stereotype «asd». =)");
-//		}
-//
-//		c.delete();
-		
-//		IStereotype str = IModelElementFactory.instance().createStereotype();
-//		str.setName("asd");
-//		str.setBaseType(IModelElementFactory.MODEL_TYPE_ASSOCIATION);
-//		
-//		ITaggedValueDefinitionContainer tvdc = IModelElementFactory.instance().createTaggedValueDefinitionContainer();
-//		str.setTaggedValueDefinitions(tvdc);
-//		
-//		ITaggedValueDefinition tvd = tvdc.createTaggedValueDefinition();
-//		tvd.setName("isRealLife");
-//		tvd.setType(ITaggedValueDefinition.TYPE_BOOLEAN);
-//		tvd.setDefaultValue("true");
-		
-		
-//		final Set<String> installed =  StereotypeUtils.getInstalledAssociationStereotypeNames();
-//		final Set<String> ontouml_strs =  StereotypeUtils.getOntoUMLAssociationStereotypeNames();
-//		
-//		System.out.print("OntoUML Association Stereotypes = [");
-//		for (String string : ontouml_strs) {
-//			System.out.print(string+" ");
-//		}
-//		System.out.println("]");
-//		
-//		System.out.print("Visual Paradigm's Stereotypes = [");
-//		for (String string : installed) {
-//			System.out.print(string+" ");
-//		}
-//		System.out.println("]");
-//		
-//		System.out.print("Not Installed Stereotypes = [");
-//		for (String string : ontouml_strs) {
-//			if(!installed.contains(string))
-//				System.out.print(string+" ");
-//		}
-//		System.out.println("]");
 	}
 	
 	private static void showMessageOnLog() {
@@ -186,10 +215,9 @@ System.out.print("Installed Class Stereeotypes");
 		System.out.println("Create temp file!");
 		File user;
 		try {
-//			user = File.createTempFile("mymodel", ".ml2");
-			user = new File("/Users/claudenirmf/Desktop/mymodel.ml2");// File.createTempFile("mymodel", ".ml2");
-			user.createNewFile();
-//			user = File.createTempFile("mymodel", ".ontouml");
+			user = File.createTempFile("mymodel", ".ontouml");
+//			user = new File("/Users/claudenirmf/Desktop/mymodel.ml2");// File.createTempFile("mymodel", ".ml2");
+//			user.createNewFile();
 	        // Delete the file when the virtual machine is terminated.
 //	        user.deleteOnExit();
 	        System.out.println(user.getAbsolutePath());
@@ -199,12 +227,8 @@ System.out.print("Installed Class Stereeotypes");
 	        Resource resource = resourceSet.createResource(URI.createFileURI("/Users/claudenirmf/Desktop/asd.ontouml"));//, true);
 	        
 	        System.out.println("Create model!");
-//	        resource.getContents().add(MetaFactory.eINSTANCE.createML2Model());
-//	        ML2Model m = MetaFactory.eINSTANCE.createML2Model();
 	        resource.getContents().add(getTestModel());
 	        
-//	        resource.save(Collections.EMPTY_MAP);
-//	        resource.save(new ByteArrayOutputStream(),null);
 	        resource.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
