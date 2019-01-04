@@ -4,10 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -32,29 +34,46 @@ import com.vp.plugin.model.IGeneralization;
 import com.vp.plugin.model.IModelElement;
 import com.vp.plugin.model.IProject;
 import com.vp.plugin.model.IStereotype;
-import com.vp.plugin.model.ITaggedValue;
-import com.vp.plugin.model.ITaggedValueDefinition;
-import com.vp.plugin.model.ITaggedValueDefinitionContainer;
 import com.vp.plugin.model.factory.IModelElementFactory;
 
-//import br.ufes.inf.nemo.ml2.ML2StandaloneSetup;
-//import br.ufes.inf.nemo.ml2.meta.ML2Model;
-//import br.ufes.inf.nemo.ml2.meta.MetaFactory;
 import it.unibz.inf.ontouml.vp.OntoUMLPluginForVP;
 import it.unibz.inf.ontouml.vp.uml.OntoUMLModelGenerator;
 import it.unibz.inf.ontouml.vp.utils.StereotypeUtils;
 import it.unibz.inf.ontouml.xtext.OntoUMLStandaloneSetup;
-import it.unibz.inf.ontouml.xtext.generator.OntoUMLGenerator;
 import it.unibz.inf.ontouml.xtext.xcore.EndurantType;
 import it.unibz.inf.ontouml.xtext.xcore.Model;
-import it.unibz.inf.ontouml.xtext.xcore.ModelElement;
 import it.unibz.inf.ontouml.xtext.xcore.OntoUMLClass;
 import it.unibz.inf.ontouml.xtext.xcore.XcoreFactory;
 
 public class TestAction implements VPActionController {
 
-	private static Injector injector;
-	private static XtextResourceSet resourceSet;
+	private Injector injector;
+	private XtextResourceSet resourceSet;
+	
+	private boolean shouldDie = false;
+	private boolean amalive = false;
+	
+	private ScheduledExecutorService service;
+			
+	private Runnable clock = new Runnable() {
+		@Override public void run() {
+//			ViewManager vm = ApplicationManager.instance().getViewManager();
+//			vm.showMessage("Now it is"+Calendar.getInstance().getTime(), "Time");
+			System.out.println("Now it is "+Calendar.getInstance().getTime());
+		}
+	};
+	
+	private void testThreadsAndStuff() {
+		if(!amalive) {
+			amalive = !amalive;
+			service = Executors.newScheduledThreadPool(1);
+			service.scheduleAtFixedRate(clock, 0, 1, TimeUnit.SECONDS);
+		}
+		else {
+			amalive = !amalive;
+			service.shutdownNow();
+		}
+	}
 	
 	@Override
 	public void update(VPAction arg0) {
@@ -64,7 +83,7 @@ public class TestAction implements VPActionController {
 	
 	@Override
 	public void performAction(VPAction arg0) {
-		
+		testThreadsAndStuff();
 //		testGeneratedModelValidation();
 //		testGenerateOntoUMLModel();
 //		testAssociationGetters();
@@ -199,7 +218,7 @@ public class TestAction implements VPActionController {
 //		'''other ultimate sortals («FOR k : kinds»«IF kinds.head!=k», «ENDIF»"«k.nameOrAlias»"«ENDFOR»).'''
 	}
 	
-	private static void testStandaloneXtext() {
+	private void testStandaloneXtext() {
 		// do this only once per application
 		System.out.println("Get injector!");
 		if(injector == null)

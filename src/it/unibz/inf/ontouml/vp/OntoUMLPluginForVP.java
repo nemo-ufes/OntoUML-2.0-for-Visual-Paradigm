@@ -1,5 +1,8 @@
 package it.unibz.inf.ontouml.vp;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import com.vp.plugin.ApplicationManager;
 import com.vp.plugin.VPPlugin;
 import com.vp.plugin.VPPluginInfo;
@@ -11,7 +14,7 @@ public class OntoUMLPluginForVP implements VPPlugin {
 
 	public static final String PLUGIN_ID = "it.unibz.inf.ontouml.vp";
 	public static final String PLUGIN_NAME = "OntoUML Plugin";
-
+	
 	@Override
 	public void loaded(VPPluginInfo arg0) {
 		System.out.println("Loading OntoUML Plugin for VP...");

@@ -7,6 +7,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -24,10 +27,8 @@ import com.vp.plugin.ViewManager;
 import com.vp.plugin.model.IProject;
 import com.vp.plugin.model.IProjectListener;
 
-import it.unibz.inf.ontouml.vp.OntoUMLPluginForVP;
 import it.unibz.inf.ontouml.vp.uml.OntoUMLModelGenerator;
 import it.unibz.inf.ontouml.xtext.OntoUMLStandaloneSetup;
-import it.unibz.inf.ontouml.xtext.xcore.Association;
 import it.unibz.inf.ontouml.xtext.xcore.Generalization;
 import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
 import it.unibz.inf.ontouml.xtext.xcore.Model;
@@ -37,10 +38,13 @@ import it.unibz.inf.ontouml.xtext.xcore.RegularAssociation;
 
 public class ProjectValidationListenner implements IProjectListener {
 
+	private ScheduledExecutorService ontoUMLService = Executors.newScheduledThreadPool(1);
+	
 	@Override
 	public void projectAfterOpened(IProject p) {
 		System.out.println("Project just opened.");
-		validate();
+//		validate();
+		ontoUMLService.schedule(newValidationTask(), 10, TimeUnit.SECONDS);
 	}
 
 	@Override
@@ -66,7 +70,18 @@ public class ProjectValidationListenner implements IProjectListener {
 	@Override
 	public void projectSaved(IProject p) {
 		System.out.println("Project saved.");
-		validate();
+//		validate();
+//		newValidationTask().run();
+		ontoUMLService.schedule(newValidationTask(), 5, TimeUnit.SECONDS);
+	}
+	
+	private Runnable newValidationTask() {
+		return new Runnable() {
+			@Override
+			public void run() {
+				validate();
+			}
+		};
 	}
 	
 	private void validate() {
