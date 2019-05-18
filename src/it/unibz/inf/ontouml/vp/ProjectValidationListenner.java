@@ -28,6 +28,7 @@ import com.vp.plugin.model.IProject;
 import com.vp.plugin.model.IProjectListener;
 
 import it.unibz.inf.ontouml.vp.uml.OntoUMLModelGenerator;
+import it.unibz.inf.ontouml.vp.utils.StereotypeUtils;
 import it.unibz.inf.ontouml.xtext.OntoUMLStandaloneSetup;
 import it.unibz.inf.ontouml.xtext.xcore.Generalization;
 import it.unibz.inf.ontouml.xtext.xcore.GeneralizationSet;
@@ -43,13 +44,14 @@ public class ProjectValidationListenner implements IProjectListener {
 	@Override
 	public void projectAfterOpened(IProject p) {
 		System.out.println("Project just opened.");
-//		validate();
 		ontoUMLService.schedule(newValidationTask(), 10, TimeUnit.SECONDS);
+		ontoUMLService.schedule(newStereotypeInstalationTask(), 0, TimeUnit.SECONDS);
 	}
 
 	@Override
 	public void projectNewed(IProject p) {
 		System.out.println("Project create.");
+		ontoUMLService.schedule(newStereotypeInstalationTask(), 0, TimeUnit.SECONDS);
 	}
 
 	@Override
@@ -70,8 +72,6 @@ public class ProjectValidationListenner implements IProjectListener {
 	@Override
 	public void projectSaved(IProject p) {
 		System.out.println("Project saved.");
-//		validate();
-//		newValidationTask().run();
 		ontoUMLService.schedule(newValidationTask(), 5, TimeUnit.SECONDS);
 	}
 	
@@ -80,6 +80,15 @@ public class ProjectValidationListenner implements IProjectListener {
 			@Override
 			public void run() {
 				validate();
+			}
+		};
+	}
+	
+	private Runnable newStereotypeInstalationTask() {
+		return new Runnable() {
+			@Override
+			public void run() {
+				StereotypeUtils.setUpOntoUMLStereotypes();
 			}
 		};
 	}

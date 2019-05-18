@@ -12,3 +12,4 @@ target/
 #/classes/
 #*.class
 #bin/
+*.DS_Store
