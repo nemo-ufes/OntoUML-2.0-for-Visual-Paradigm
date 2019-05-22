@@ -30,12 +30,11 @@ public class StereotypeUtils {
 	public static final String STR_PHASE_MIXIN = "phaseMixin";
 	
 	/* OntoUML Association Stereotypes for Relation Types */
-	public static final String STR_MATERIAL = "material";
-	public static final String STR_COMPARATIVE = "comparative";
-	public static final String STR_HISTORICAL = "historical";
-	public static final String STR_MEDIATION = "mediation";
-	public static final String STR_CHARACTERIZATION = "characterization";
-	public static final String STR_EXTERNAL_DEPENDENCE = "external dependence";
+	public static final String STR_DESCRIPTIVE = "descriptive";
+	public static final String STR_NON_DESCRIPTIVE = "non-descriptive";
+	public static final String STR_INVOLVEMENT = "involvement";
+	public static final String STR_INHERENCE = "inherence";
+	public static final String STR_DEPENDENCE = "dependence";
 	
 
 	public static void setUpOntoUMLStereotypes() {
@@ -140,12 +139,11 @@ public class StereotypeUtils {
 	public static Set<String> getOntoUMLAssociationStereotypeNames() {
 		final Set<String> str_names = new HashSet<String>();
 		
-		str_names.add(STR_MATERIAL);
-		str_names.add(STR_COMPARATIVE);
-		str_names.add(STR_HISTORICAL);
-		str_names.add(STR_MEDIATION);
-		str_names.add(STR_CHARACTERIZATION);
-		str_names.add(STR_EXTERNAL_DEPENDENCE);
+		str_names.add(STR_DESCRIPTIVE);
+		str_names.add(STR_NON_DESCRIPTIVE);
+		str_names.add(STR_INVOLVEMENT);
+		str_names.add(STR_INHERENCE);
+		str_names.add(STR_DEPENDENCE);
 		
 		return str_names;
 	}

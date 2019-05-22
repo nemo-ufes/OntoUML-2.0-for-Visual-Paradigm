@@ -25,18 +25,16 @@ public class AssociationAdapter extends ModelElementAdapter {
 	public RelationType getOntoUMLType() {
 		List<String> strs = Arrays.asList(getInstance().toStereotypeArray());
 		
-		if(strs.contains(StereotypeUtils.STR_EXTERNAL_DEPENDENCE))
-			return RelationType.EXTERNAL_DEPEDENCE;
-		if(strs.contains(StereotypeUtils.STR_CHARACTERIZATION))
-			return RelationType.CHARACTERIZATION;
-		if(strs.contains(StereotypeUtils.STR_MEDIATION))
-			return RelationType.MEDIATION;
-		if(strs.contains(StereotypeUtils.STR_MATERIAL))
-			return RelationType.MATERIAL;
-		if(strs.contains(StereotypeUtils.STR_COMPARATIVE))
-			return RelationType.COMPARATIVE;
-		if(strs.contains(StereotypeUtils.STR_HISTORICAL))
-			return RelationType.HISTORICAL;
+		if(strs.contains(StereotypeUtils.STR_DEPENDENCE))
+			return RelationType.DEPENDENCE;
+		if(strs.contains(StereotypeUtils.STR_INHERENCE))
+			return RelationType.INHERENCE;
+		if(strs.contains(StereotypeUtils.STR_INVOLVEMENT))
+			return RelationType.INVOLVEMENT;
+		if(strs.contains(StereotypeUtils.STR_DESCRIPTIVE))
+			return RelationType.DESCRIPTIVE;
+		if(strs.contains(StereotypeUtils.STR_NON_DESCRIPTIVE))
+			return RelationType.NON_DESCRIPTIVE;
 		
 		return RelationType.NONE;
 	}
@@ -57,12 +55,6 @@ public class AssociationAdapter extends ModelElementAdapter {
 		return ((IAssociationEnd) getInstance().getFromEnd()).getMultiplicity();
 	}
 	
-	public String getFromAggregationKind() {
-		return ((IAssociationEnd) getInstance().getFromEnd()).getAggregationKind();
-	}
 	
-	public String getToAggregationKind() {
-		return ((IAssociationEnd) getInstance().getToEnd()).getAggregationKind();
-	}
 	
 }
