@@ -44,7 +44,7 @@ public class ProjectValidationListenner implements IProjectListener {
 	@Override
 	public void projectAfterOpened(IProject p) {
 		System.out.println("Project just opened.");
-		ontoUMLService.schedule(newValidationTask(), 10, TimeUnit.SECONDS);
+		ontoUMLService.schedule(newValidationTask(), 4, TimeUnit.SECONDS);
 		ontoUMLService.schedule(newStereotypeInstalationTask(), 0, TimeUnit.SECONDS);
 	}
 
@@ -57,6 +57,7 @@ public class ProjectValidationListenner implements IProjectListener {
 	@Override
 	public void projectOpened(IProject p) {
 		System.out.println("Project opened.");
+		
 	}
 
 	@Override
@@ -72,14 +73,17 @@ public class ProjectValidationListenner implements IProjectListener {
 	@Override
 	public void projectSaved(IProject p) {
 		System.out.println("Project saved.");
-		ontoUMLService.schedule(newValidationTask(), 5, TimeUnit.SECONDS);
+		ontoUMLService.schedule(newValidationTask(), 2, TimeUnit.SECONDS);
 	}
 	
 	private Runnable newValidationTask() {
 		return new Runnable() {
 			@Override
 			public void run() {
-				validate();
+				ApplicationManager.instance().getViewManager().clearMessages(OntoUMLPluginForVP.PLUGIN_NAME);
+				if(OntoUMLPluginConfigurations.getInstance().isPluginEnabled()) {					
+					validate();
+				}
 			}
 		};
 	}
@@ -108,12 +112,14 @@ public class ProjectValidationListenner implements IProjectListener {
 		File user;
 		try {
 			user = File.createTempFile("mymodel", ".ontouml");
+//			user = new File("/Users/claudenirmf/Documents/mymodel.ontouml");
+//			user.createNewFile();
 			FileWriter fw = new FileWriter(user);
 			fw.write((new OntoUMLModelGenerator()).generateOntoUMLModel());
 			fw.close();
 			
 			Resource resource = resourceSet.getResource(URI.createFileURI(user.getAbsolutePath()),true);
-			Model m = (Model) resource.getContents().get(0);
+//			Model m = (Model) resource.getContents().get(0);
 			resource.save(null);
 			
 			IResourceValidator validator = ((XtextResource)resource).getResourceServiceProvider().getResourceValidator();
@@ -124,7 +130,7 @@ public class ProjectValidationListenner implements IProjectListener {
 							OntoUMLPluginForVP.PLUGIN_NAME);
 			}
 			
-			user.delete();
+//			user.delete();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -152,8 +158,8 @@ public class ProjectValidationListenner implements IProjectListener {
 		else if(me instanceof RegularAssociation) {
 			RegularAssociation a = (RegularAssociation) me;
 			ret.append(" on ASSOCIATION '" + a.getAlias() + '\'');
-			ret.append(" ('" + a.getEndA().getAlias() + '\'');
-			ret.append(", '" + a.getEndB().getAlias() + "')");
+			ret.append(" ('" + a.getSource().getAlias() + '\'');
+			ret.append(", '" + a.getTarget().getAlias() + "')");
 		}
 		else if(me instanceof Generalization) {
 			Generalization g = (Generalization) me;
