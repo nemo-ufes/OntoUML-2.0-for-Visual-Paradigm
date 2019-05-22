@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import com.vp.plugin.ApplicationManager;
 import com.vp.plugin.model.IAssociation;
+import com.vp.plugin.model.IAssociationClass;
 import com.vp.plugin.model.IAssociationEnd;
 import com.vp.plugin.model.IClass;
 import com.vp.plugin.model.IGeneralization;
@@ -22,6 +23,7 @@ public class OntoUMLModelGenerator {
 		IProject p = ApplicationManager.instance().getProjectManager().getProject();
 		String[] metypes = { IModelElementFactory.MODEL_TYPE_CLASS,
 				IModelElementFactory.MODEL_TYPE_ASSOCIATION,
+				IModelElementFactory.MODEL_TYPE_ASSOCIATION_CLASS,
 				IModelElementFactory.MODEL_TYPE_GENERALIZATION,
 				IModelElementFactory.MODEL_TYPE_GENERALIZATION_SET };
 		@SuppressWarnings("unchecked")
@@ -51,7 +53,7 @@ public class OntoUMLModelGenerator {
 			return toOntoUMLAssociation((IAssociation) me);
 			
 		case IModelElementFactory.MODEL_TYPE_ASSOCIATION_CLASS:
-			return null;
+			return toOntoUMLAssociationClass((IAssociationClass) me);
 			
 		case IModelElementFactory.MODEL_TYPE_GENERALIZATION:
 			return toOntoUMLGeneralization((IGeneralization) me);
@@ -106,6 +108,13 @@ public class OntoUMLModelGenerator {
 		if(!a.toString().isEmpty())
 			ret.append(" aka " + a.getQuotatedName());
 		
+		String aggregationKind = a.getFromAggregationKind();
+		if(aggregationKind.equals(IAssociationEnd.AGGREGATION_KIND_AGGREGATION)) {
+			ret.append(" aggregation");
+		} else if(aggregationKind.equals(IAssociationEnd.AGGREGATION_KIND_COMPOSITED)) {
+			ret.append(" composition");
+		}
+		
 		String card = a.getFromCardinality();
 		if(card != IAssociationEnd.MULTIPLICITY_UNSPECIFIED) {
 			if(!card.contains(".."))
@@ -115,6 +124,13 @@ public class OntoUMLModelGenerator {
 		}
 		ret.append(' ' + a.getFrom().getQuotatedId());
 		
+
+		aggregationKind = a.getToAggregationKind();
+		if(aggregationKind.equals(IAssociationEnd.AGGREGATION_KIND_AGGREGATION)) {
+			ret.append(" aggregation");
+		} else if(aggregationKind.equals(IAssociationEnd.AGGREGATION_KIND_COMPOSITED)) {
+			ret.append(" composition");
+		}
 		card = a.getToCardinality();
 		if(card != IAssociationEnd.MULTIPLICITY_UNSPECIFIED) {
 			if(!card.contains(".."))
@@ -122,6 +138,17 @@ public class OntoUMLModelGenerator {
 			else
 				ret.append(" [" + card + ']');
 		}
+		ret.append(' ' + a.getTo().getQuotatedId());
+		
+		return ret;
+	}
+	
+	private StringBuilder toOntoUMLAssociationClass(IAssociationClass me) {
+		StringBuilder ret = new StringBuilder();
+		AssociationClassAdapter a = (AssociationClassAdapter) AdapterManager.getApater(me);
+		
+		ret.append("derivation " + a.getQuotatedId());
+		ret.append(' ' + a.getFrom().getQuotatedId());
 		ret.append(' ' + a.getTo().getQuotatedId());
 		
 		return ret;
