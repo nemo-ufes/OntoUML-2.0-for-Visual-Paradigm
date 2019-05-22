@@ -19,7 +19,8 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext-2.13.0.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext.util-2.13.0.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext.xbase.lib-2.13.0.jar"/>
-	<classpathentry kind="lib" path="lib/it.unibz.inf.ontouml.xtext.xcore-1.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Visual Paradigm Plugin Development"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Visual Paradigm Plug-in Library"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
