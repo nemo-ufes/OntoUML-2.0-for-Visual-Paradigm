@@ -24,17 +24,6 @@
 			</action>
 			-->
 			<action 
-					id="it.unibz.inf.ontouml.vp.actions.OpenOntoUMLMenuAction"
-					actionType="generalAction"
-					description="Opens the configuration menu of OntoUML Plugin for VP."
-					style="normal"
-					tooltip="Opens the configuration menu of OntoUML Plugin for VP." 
-					icon="icons/menu.png"
-					label="Configurations"
-					toolbarPath="it.unibz.inf.ontouml.vp.actionset1.toolbar1/#">
-				<actionController class="it.unibz.inf.ontouml.vp.actions.OpenOntoUMLMenuAction" />
-			</action>
-			<action 
 					id="it.unibz.inf.ontouml.vp.actions.ReloadPluginAction"
 					actionType="generalAction"
 					description="Reloads OntoUML Plugin for Visual Paradigm and enables the update of compiled files without requiring restart of the tool."
