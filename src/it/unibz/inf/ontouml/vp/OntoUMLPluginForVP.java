@@ -1,8 +1,5 @@
 package it.unibz.inf.ontouml.vp;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import com.vp.plugin.ApplicationManager;
 import com.vp.plugin.VPPlugin;
 import com.vp.plugin.VPPluginInfo;
@@ -17,20 +14,14 @@ public class OntoUMLPluginForVP implements VPPlugin {
 	
 	@Override
 	public void loaded(VPPluginInfo arg0) {
-//		System.out.println("Loading OntoUML Plugin for VP...");
 		StereotypeUtils.setUpOntoUMLStereotypes();
 		
 		ProjectValidationListenner projectListener = new ProjectValidationListenner();
 		IProject project = ApplicationManager.instance().getProjectManager().getProject();
 		project.addProjectListener(projectListener);
-		
-//		System.out.println("OntoUML Plugin for VP loaded.");
 	}
 
 	@Override
-	public void unloaded() {
-		// TODO Auto-generated method stub
-
-	}
-
+	public void unloaded() {}
+	
 }
