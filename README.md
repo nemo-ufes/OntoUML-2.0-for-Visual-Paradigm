@@ -1,3 +1,9 @@
+# NOTICE
+
+This project has been discontinued. We recommend the usage of the **[OntoUML Plugin for Visual Paradigm](https://github.com/OntoUML/ontouml-vp-plugin)** supported by the [OntoUML organization on GitHub](https://github.com/OntoUML/). This new tooling aggregates all new development OntoUML with support to a various exclusive features.
+
+![](https://github.com/OntoUML/ontouml-vp-plugin/blob/master/docs/feature-modeling.gif)
+
 # OntoUML 2.0 Plugin for Visual Paradigm
 
 This repository contains a plug-in for Visual Paradigm that enables model verification for the already published portion of OntoUML 2.0.
